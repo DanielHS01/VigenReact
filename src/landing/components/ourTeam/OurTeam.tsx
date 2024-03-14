@@ -4,7 +4,7 @@ import ourTeam3 from "@/assets/Nosotros3.png";
 
 const OurTeam = () => {
   return (
-    <div className="bg-indigo-100 py-16 px-32 relative">
+    <div className="bg-indigo-100 py-16 px-32 relative text-cyan-950">
       <h3 className="text-3xl">Sobre Nosotros</h3>
       <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row pt-10 justify-between">
         <img src={ourTeam1} className="h-60 w-60 rounded-2xl" alt="" />

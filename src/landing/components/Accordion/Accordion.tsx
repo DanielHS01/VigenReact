@@ -1,6 +1,6 @@
 const Accordion = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around relative bottom-32">
+    <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around relative bottom-32 text-cyan-950">
       <div className="flex flex-col space-y-5 bg-white p-5 w-64 rounded-2xl shadow-2xl">
         <p className="cursor-pointer underline">¿Qué es?</p>
         <p className="cursor-pointer">Tipos de Violencia</p>

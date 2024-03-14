@@ -1,5 +1,7 @@
+import AboutUsComponent from "@/landing/components/AboutUsComponent/AboutUsComponent";
+
 const AboutUs = () => {
-  return <div>AboutUs</div>;
+  return <AboutUsComponent />;
 };
 
 export default AboutUs;
