@@ -6,9 +6,9 @@ const AboutUsComponent = () => {
       <div className="p-15 relative flex flex-col w-full overflow-hidden">
         <img
           src={udecImage}
-          className="opacity-40 lg:translate-x-[39rem] lg:h-[36rem] h-[38rem] lg:w-[50rem] inset-0 object-cover"
+          className="opacity-30 md:translate-x-24 xl:translate-x-[39rem] md:h-[45rem] lg:h-[36rem] h-[38rem] lg:w-[50rem] inset-0 object-cover"
         />
-        <div className="absolute md:left-28 md:w-[38rem] flex flex-col w-full justify-center p-10 md:text-start mt-16">
+        <div className="absolute md:left-28 md:w-[38rem] flex flex-col w-full justify-center p-10 md:text-start mt-16 lg:mt-16">
           <h2 className="md:text-5xl mb-5 text-4xl font-semibold">
             Sobre Nosotros
           </h2>

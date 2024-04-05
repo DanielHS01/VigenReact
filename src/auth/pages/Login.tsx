@@ -1,5 +1,11 @@
+import LoginComponent from "../components/Login/LoginComponent";
+
 const Login = () => {
-  return <div>Login</div>;
+  return (
+    <section className=" p-16 flex items-center justify-center">
+      <LoginComponent />
+    </section>
+  );
 };
 
 export default Login;

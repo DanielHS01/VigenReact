@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import CommonUserImage from "@/assets/UsuarioRol.png";
+import Button from "@/shared/ui/Button";
 
 const CommonUser = () => {
   return (
@@ -14,9 +15,9 @@ const CommonUser = () => {
           generar un cambio en nuestra sociedad, haz parte de Vigen.
         </p>
         <div className="flex flex-col justify-center items-center mb-3 md:mb-0">
-          <button className="bg-cyan-950 rounded-md border text-white border-cyan-950 mt-4 px-5 py-1">
+          <Button className="my-5">
             <NavLink to="/signup">Registrarse</NavLink>
-          </button>
+          </Button>
         </div>
       </div>
       <div>
