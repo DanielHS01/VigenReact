@@ -4,11 +4,11 @@ import OurTeam from "@/landing/components/ourTeam/OurTeam";
 
 const Home = () => {
   return (
-    <>
+    <div className="mx-auto">
       <Hero />
       <Accordion />
       <OurTeam />
-    </>
+    </div>
   );
 };
 
