@@ -2,6 +2,7 @@ import Button from "@/shared/ui/Button";
 import ourTeam1 from "@/assets/Nosotros1.png";
 import ourTeam2 from "@/assets/Nosotros2.png";
 import ourTeam3 from "@/assets/Nosotros3.png";
+import { Link } from "react-router-dom";
 
 const OurTeam = () => {
   return (
@@ -13,7 +14,9 @@ const OurTeam = () => {
         <img src={ourTeam3} className="h-60 w-60 rounded-2xl" />
       </div>
       <div className="flex justify-center pt-10">
-        <Button>Más información</Button>
+        <Button>
+          <Link to="/aboutUs">Más Información</Link>
+        </Button>
       </div>
     </div>
   );

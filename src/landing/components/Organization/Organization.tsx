@@ -15,7 +15,7 @@ const Organization = () => {
         </p>
         <div className="flex flex-col justify-center items-center mb-3 md:mb-0">
           <Button className="my-5">
-            <NavLink to="/signup">Registrarse</NavLink>
+            <NavLink to="/organizationSignup">Registrarse</NavLink>
           </Button>
         </div>
       </div>

@@ -13,7 +13,7 @@ const LoginForm = () => {
         <Input type="password" placeholder="********" />
       </div>
       <div className="flex justify-center p-3">
-        <Button>Ingresar</Button>
+        <Button variant="outline">Ingresar</Button>
       </div>
     </form>
   );
