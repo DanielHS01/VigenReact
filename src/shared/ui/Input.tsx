@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <input
       type={type}
-      className={`text-black rounded-md h-8 ${className}`}
+      className={`text-black rounded-md h-8 w-full ${className}`}
       placeholder={placeholder}
     />
   );

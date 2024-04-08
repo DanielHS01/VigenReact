@@ -9,7 +9,10 @@ const AboutUs = lazy(() => import("@/landing/pages/AboutUs"));
 const Help = lazy(() => import("@/landing/pages/Help"));
 const Roles = lazy(() => import("@/landing/pages/Roles"));
 const Login = lazy(() => import("@/auth/pages/Login"));
-const Signup = lazy(() => import("@/auth/pages/Signup"));
+const OrganizationSignup = lazy(
+  () => import("@/auth/pages/OrganizationSignup")
+);
+const UserSignup = lazy(() => import("@/auth/pages/UserSignup"));
 
 export const router = createBrowserRouter([
   {
@@ -63,10 +66,19 @@ export const router = createBrowserRouter([
       },
       {
         index: true,
-        path: "/signup",
+        path: "/organizationSignup",
         element: (
           <Suspense fallback={<Loading />}>
-            <Signup />
+            <OrganizationSignup />
+          </Suspense>
+        ),
+      },
+      {
+        index: true,
+        path: "/userSignup",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <UserSignup />
           </Suspense>
         ),
       },

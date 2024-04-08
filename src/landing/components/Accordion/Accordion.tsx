@@ -41,27 +41,35 @@ const Accordion = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around space-x-5 relative bottom-32 text-cyan-950 p-10">
-      <div className="flex flex-col space-y-5 bg-white p-5 w-64 rounded-2xl shadow-2xl">
+      <div className="flex flex-col space-y-2 bg-white p-5 w-64 rounded-2xl shadow-2xl">
         <p
-          className={`cursor-pointer ${activeIndex === 0 ? "underline" : ""}`}
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+            activeIndex === 0 ? "underline" : ""
+          }`}
           onClick={() => handleClick(0)}
         >
           ¿Qué es?
         </p>
         <p
-          className={`cursor-pointer ${activeIndex === 1 ? "underline" : ""}`}
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+            activeIndex === 1 ? "underline" : ""
+          }`}
           onClick={() => handleClick(1)}
         >
           Tipos de Violencia
         </p>
         <p
-          className={`cursor-pointer ${activeIndex === 2 ? "underline" : ""}`}
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+            activeIndex === 2 ? "underline" : ""
+          }`}
           onClick={() => handleClick(2)}
         >
           ¿Dónde Denunciar?
         </p>
         <p
-          className={`cursor-pointer ${activeIndex === 3 ? "underline" : ""}`}
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+            activeIndex === 3 ? "underline" : ""
+          }`}
           onClick={() => handleClick(3)}
         >
           Preguntas Frecuentes

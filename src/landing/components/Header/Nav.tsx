@@ -1,13 +1,30 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { FaBars, FaX, FaGlobe } from "react-icons/fa6";
+import { FaBars, FaX } from "react-icons/fa6";
+import Button from "@/shared/ui/Button";
+import Dropdown from "@/landing/components/Header/Dropdown";
 
 const NavLinks = () => {
   return (
     <>
-      <NavLink to="/">Inicio</NavLink>
-      <NavLink to="/aboutUs">Sobre Nosotros</NavLink>
-      <NavLink to="/help">Ayuda</NavLink>
+      <NavLink
+        to="/"
+        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+      >
+        Inicio
+      </NavLink>
+      <NavLink
+        to="/aboutUs"
+        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+      >
+        Sobre Nosotros
+      </NavLink>
+      <NavLink
+        to="/help"
+        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+      >
+        Ayuda
+      </NavLink>
     </>
   );
 };
@@ -15,13 +32,13 @@ const NavLinks = () => {
 const NavButtons = () => {
   return (
     <>
-      <FaGlobe className="cursor-pointer" />
-      <button className="border border-cyan-950 px-6 py-2 rounded-md text-cyan-950">
+      <Dropdown />
+      <Button variant="secondary">
         <NavLink to="/roles">Registro</NavLink>
-      </button>
-      <button className="bg-cyan-950 px-8 py-2 rounded-md text-white">
+      </Button>
+      <Button>
         <NavLink to="/login">Inicio</NavLink>
-      </button>
+      </Button>
     </>
   );
 };
@@ -37,10 +54,10 @@ const Nav = () => {
         className=" w-7/12 md:w-10/12 lg:w-7/12 justify-end md:justify-between items-center flex"
         id="topNavbar"
       >
-        <div className="hidden justify-center md:flex space-x-5">
+        <div className="hidden md:flex space-x-5">
           <NavLinks />
         </div>
-        <div className="hidden justify-center items-center md:flex space-x-5">
+        <div className="hidden items-center md:flex space-x-5">
           <NavButtons />
         </div>
         <div className="md:hidden">
@@ -54,7 +71,7 @@ const Nav = () => {
           <div className="flex flex-col items-center basis-full animate-fade-down space-y-4 text-xl md:hidden mb-5">
             <NavLinks />
           </div>
-          <div className="flex flex-col items-center basis-full animate-fade-down space-y-4 text-xl md:hidden">
+          <div className="grid grid-cols-2 gap-5 items-center basis-full animate-fade-down space-y-4 text-xl md:hidden">
             <NavButtons />
           </div>
         </>
