@@ -12,8 +12,12 @@ const Footer = () => {
       <img src={vigenBlanco} alt="Logo Vigen Footer" className="h-16" />
       <div className="text-center">
         <div className="flex justify-center text-center space-x-3 md:ms-8">
-          <a href="#">Información Legal</a>
-          <a href="#">Política de Privacidad</a>
+          <a href="#" className="hover:underline underline-offset-2">
+            Información Legal
+          </a>
+          <a href="#" className="hover:underline underline-offset-2">
+            Política de Privacidad
+          </a>
         </div>
         <p>&copy; {new Date().getFullYear()} Vigen</p>
       </div>

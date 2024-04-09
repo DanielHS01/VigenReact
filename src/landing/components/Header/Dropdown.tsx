@@ -1,6 +1,6 @@
 import Button from "@/shared/ui/Button";
 import { useEffect, useRef, useState } from "react";
-import { FaGlobe } from "react-icons/fa6";
+import { FaGlobe, FaAngleDown } from "react-icons/fa6";
 import Spanish from "@/assets/flag-for-spain-svgrepo-com.svg";
 import English from "@/assets/united-states-of-america-united-states-svgrepo-com.svg";
 
@@ -31,9 +31,13 @@ const Dropdown: React.FC = () => {
   return (
     <div className="justify-self-center col-span-2">
       <div className="flex justify-center" ref={dropdownRef}>
-        <Button variant="secondary" onClick={() => toggleDropdown()}>
+        <button
+          onClick={() => toggleDropdown()}
+          className="flex space-x-0.5 hover:scale-110"
+        >
           <FaGlobe />
-        </Button>
+          <FaAngleDown />
+        </button>
       </div>
       {isOpen && (
         <div className="flex flex-col md:absolute mt-2 w-32 rounded-md shadow-lg bg-cyan-950 text-white animate-fade-down">

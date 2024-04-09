@@ -18,13 +18,13 @@ const LoginComponent = () => {
         <p className="font-thin">No tienes cuenta?</p>
         <Link
           to="/roles"
-          className="uppercase font-bold hover:text-gray-200 transition-colors"
+          className="uppercase font-bold hover:text-gray-200 transition-colors hover:underline underline-offset-2"
         >
           Crear Cuenta
         </Link>
       </div>
       <LoginForm />
-      <p className="text-end text-xs py-2 font-thin cursor-pointer hover:text-gray-200 transition-colors">
+      <p className="text-end text-xs py-2 font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
         Olvidé mi contraseña
       </p>
     </FormContainer>

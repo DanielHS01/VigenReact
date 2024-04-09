@@ -9,19 +9,19 @@ const NavLinks = () => {
     <>
       <NavLink
         to="/"
-        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+        className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
         Inicio
       </NavLink>
       <NavLink
         to="/aboutUs"
-        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+        className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
         Sobre Nosotros
       </NavLink>
       <NavLink
         to="/help"
-        className="hover:bg-cyan-100 py-2 transition-colors rounded-lg"
+        className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
         Ayuda
       </NavLink>

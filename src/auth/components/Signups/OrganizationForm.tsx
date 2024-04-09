@@ -20,7 +20,7 @@ const OrganizationForm = () => {
           <Input type="text" placeholder="Contraseña" />
           <Input type="text" placeholder="Confirmar Contraseña" />
         </div>
-        <p className="text-xs font-thin cursor-pointer hover:text-gray-200 transition-colors">
+        <p className="text-xs font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
           Acuerdo de Privacidad
         </p>
         <div className="flex justify-center">
