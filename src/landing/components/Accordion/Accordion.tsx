@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Accordion = () => {
-  const [title, setTitle] = useState("¿Qué es?");
+  const { t } = useTranslation();
+  const [title, setTitle] = useState(t("Accordion.firstTitle"));
   const [description, setDescription] = useState(
-    "Violencia es todo acto, acción u omisión que produzca daño o sufrimiento físico, sexual, psicológico, verbal, o económico a una persona; puede ocurrir en público o en privado. Las situaciones violentas ocurren cada vez que una persona impone su poder sobre otra vulnerando sus derechos."
+    t("Accordion.firstDescription")
   );
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -11,28 +13,20 @@ const Accordion = () => {
     setActiveIndex(index);
     switch (index) {
       case 0:
-        setTitle("¿Qué es?");
-        setDescription(
-          "Violencia es todo acto, acción u omisión que produzca daño o sufrimiento físico, sexual, psicológico, verbal, o económico a una persona; puede ocurrir en público o en privado. Las situaciones violentas ocurren cada vez que una persona impone su poder sobre otra vulnerando sus derechos."
-        );
+        setTitle(t("Accordion.firstTitle"));
+        setDescription(t("Accordion.firstDescription"));
         break;
       case 1:
-        setTitle("Tipos de Violencia");
-        setDescription(
-          "Los principales tipos de violencia incluyen la violencia física, que causa daño corporal; la violencia sexual, que implica actos sexuales no consentidos; la violencia psicológica, que daña la salud emocional a través de humillaciones y amenazas; la violencia verbal, el uso de palabras para menospreciar."
-        );
+        setTitle(t("Accordion.secondTitle"));
+        setDescription(t("Accordion.secondDescription"));
         break;
       case 2:
-        setTitle("¿Dónde Denunciar?");
-        setDescription(
-          "Las víctimas de violencia pueden acudir a varias entidades para denunciar y recibir atención, como la Línea Púrpura de la Secretaría de la Mujer, las Comisarías de Familia, la Fiscalía General de la Nación, y diversas organizaciones de la sociedad civil, las cuales brindan orientación, asesoría jurídica y acompañamiento a quienes hayan sufrido algún tipo de violencia."
-        );
+        setTitle(t("Accordion.thirdTitle"));
+        setDescription(t("Accordion.thirdDescription"));
         break;
       case 3:
-        setTitle("Preguntas Frecuentes");
-        setDescription(
-          "Las preguntas más comunes que suelen hacerse las víctimas de violencia incluyen: ¿Qué es la violencia y cuáles son sus diferentes tipos? ¿Cómo puedo identificar si estoy siendo víctima de violencia? ¿Qué puedo hacer si estoy sufriendo algún tipo de violencia? ¿Cuáles son mis derechos como víctima de violencia? ¿Cómo puedo protegerme y mantenerme a salvo?"
-        );
+        setTitle(t("Accordion.fourthTitle"));
+        setDescription(t("Accordion.fourthDescription"));
         break;
       default:
         break;
@@ -40,42 +34,42 @@ const Accordion = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around space-x-5 relative bottom-32 text-cyan-950 p-10">
-      <div className="flex flex-col space-y-2 bg-white p-5 w-64 rounded-2xl shadow-2xl">
+    <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around space-x-5 relative bottom-32 text-cyan-950 p-10 dark:text-indigo-100">
+      <div className="flex flex-col space-y-2 bg-white p-5 w-64 rounded-2xl shadow-2xl dark:bg-customCyan">
         <p
-          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 0 ? "underline" : ""
           }`}
           onClick={() => handleClick(0)}
         >
-          ¿Qué es?
+          {t("Accordion.firstTitle")}
         </p>
         <p
-          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 1 ? "underline" : ""
           }`}
           onClick={() => handleClick(1)}
         >
-          Tipos de Violencia
+          {t("Accordion.secondTitle")}
         </p>
         <p
-          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 2 ? "underline" : ""
           }`}
           onClick={() => handleClick(2)}
         >
-          ¿Dónde Denunciar?
+          {t("Accordion.thirdTitle")}
         </p>
         <p
-          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md ${
+          className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 3 ? "underline" : ""
           }`}
           onClick={() => handleClick(3)}
         >
-          Preguntas Frecuentes
+          {t("Accordion.fourthTitle")}
         </p>
       </div>
-      <div className="bg-white flex w-64 md:w-[45rem] p-5 rounded-2xl shadow-2xl">
+      <div className="bg-white flex w-64 md:w-[45rem] p-5 rounded-2xl shadow-2xl dark:bg-customCyan">
         <div className="flex flex-col">
           <h2 className="text-2xl font-medium mb-1 flex text-start">{title}</h2>
           <p>{description}</p>

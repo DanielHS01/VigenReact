@@ -10,12 +10,16 @@ export default {
     // Path to Tremor module
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
   ],
+  "darkMode": "selector",
   theme: {
     transparent: 'transparent',
     current: 'currentColor',
     extend: {
+      fontFamily: {
+        vigen: ["Ms Madi", "cursive"],
+      },
       colors: {
-        // light mode
+        "customCyan" : "#031928",
         tremor: {
           brand: {
             faint: colors.blue[50],

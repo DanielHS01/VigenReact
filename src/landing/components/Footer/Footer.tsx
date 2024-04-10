@@ -1,22 +1,24 @@
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
-import vigenBlanco from "@/assets/VigenLogo.png";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="bg-cyan-950 text-white flex flex-col justify-center items-center space-y-2 py-10 text-xl">
+    <div className="bg-cyan-950 text-white flex flex-col justify-center items-center space-y-2 py-10 text-xl dark:bg-customCyan">
       <div className="flex justify-center space-x-10">
-        <FaFacebook size={40} className="cursor-pointer" />
-        <FaXTwitter size={40} className="cursor-pointer" />
-        <FaInstagram size={40} className="cursor-pointer" />
+        <FaFacebook size={40} className="cursor-pointer hover:scale-110" />
+        <FaXTwitter size={40} className="cursor-pointer hover:scale-110" />
+        <FaInstagram size={40} className="cursor-pointer hover:scale-110" />
       </div>
-      <img src={vigenBlanco} alt="Logo Vigen Footer" className="h-16" />
+      <p className="text-4xl italic font-bold font-vigen py-2">Vigen</p>
       <div className="text-center">
         <div className="flex justify-center text-center space-x-3 md:ms-8">
           <a href="#" className="hover:underline underline-offset-2">
-            Información Legal
+            {t("Footer.legal")}
           </a>
           <a href="#" className="hover:underline underline-offset-2">
-            Política de Privacidad
+            {t("Footer.privacy")}
           </a>
         </div>
         <p>&copy; {new Date().getFullYear()} Vigen</p>
