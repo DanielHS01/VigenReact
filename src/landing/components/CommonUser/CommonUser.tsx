@@ -7,7 +7,7 @@ const CommonUser = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="md:grid md:grid-cols-2 md:gap-20 md:px-32 px-8 text-cyan-950 dark:text-indigo-100">
+    <div className="md:grid md:grid-cols-2 md:gap-20 md:px-32 px-8 text-cyan-950 dark:text-cyan-50">
       <div className="flex flex-col justify-center md:w-96">
         <h1 className="font-semibold text-3xl text-center mb-8 md:text-5xl">
           {t("Roles.commonUserTitle")}

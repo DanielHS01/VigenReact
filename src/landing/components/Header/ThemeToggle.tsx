@@ -29,7 +29,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="text-gray-800 dark:text-gray-200 hover:scale-125 justify-self-center col-span-2"
+      className="hover:scale-125 justify-self-center col-span-2"
       onClick={handleTheme}
     >
       {theme === "dark" ? <IoMoon /> : <IoSunny />}
