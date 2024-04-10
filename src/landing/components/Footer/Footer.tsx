@@ -1,5 +1,6 @@
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import Logo from "@/shared/ui/Logo";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -11,7 +12,7 @@ const Footer = () => {
         <FaXTwitter size={40} className="cursor-pointer hover:scale-110" />
         <FaInstagram size={40} className="cursor-pointer hover:scale-110" />
       </div>
-      <p className="text-4xl italic font-bold font-vigen py-2">Vigen</p>
+      <Logo className="scale-125 my-2 fill-white" />
       <div className="text-center">
         <div className="flex justify-center text-center space-x-3 md:ms-8">
           <a href="#" className="hover:underline underline-offset-2">

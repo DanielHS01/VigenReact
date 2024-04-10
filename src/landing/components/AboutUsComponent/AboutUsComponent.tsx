@@ -5,7 +5,7 @@ const AboutUsComponent = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-cyan-50 md:mb-0 text-cyan-950 w-full dark:bg-cyan-950 dark:text-indigo-100">
+    <div className="bg-cyan-50 md:mb-0 text-cyan-950 w-full dark:bg-cyan-950 dark:text-cyan-50">
       <div className="p-15 relative flex flex-col w-full overflow-hidden">
         <img
           src={udecImage}

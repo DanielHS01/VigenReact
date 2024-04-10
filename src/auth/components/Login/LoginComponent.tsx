@@ -10,7 +10,7 @@ const LoginComponent = () => {
   return (
     <FormContainer>
       <div className="flex justify-center">
-        <div className="relative bottom-14 bg-cyan-950 rounded-full flex justify-center w-16 h-16 items-center">
+        <div className="relative bottom-14 bg-cyan-950 dark:bg-customCyan rounded-full flex justify-center w-16 h-16 items-center">
           <FaRegCircleUser size={50} />
         </div>
       </div>

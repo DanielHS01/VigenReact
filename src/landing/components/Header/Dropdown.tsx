@@ -35,7 +35,7 @@ const Dropdown: React.FC = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="flex flex-col md:absolute mt-2 w-32 rounded-md shadow-lg bg-cyan-950 text-white animate-fade-down dark:bg-indigo-100 dark:text-cyan-950">
+        <div className="flex flex-col md:absolute mt-2 w-32 rounded-md shadow-lg bg-cyan-950 text-cyan-50 animate-fade-down dark:bg-cyan-50 dark:text-cyan-950">
           {languages.map((lng) => (
             <Button
               className="flex items-center space-x-3"
