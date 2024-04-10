@@ -1,0 +1,60 @@
+{
+    "Languages": {
+        "spanish": "Español",
+        "english": "Inglés"
+    } ,
+    "Hero": {
+        "title": "No a la violencia de género",
+        "description": "No quiero sentirme valiente cuando salga a la calle, quiero sentirme libre"
+    },
+    "Accordion": {
+        "firstTitle": "¿Qué es?",
+        "secondTitle": "Tipos de Violencia",
+        "thirdTitle": "¿Dónde Denunciar?",
+        "fourthTitle": "Preguntas Frecuentes",
+        "firstDescription": "Violencia es todo acto, acción u omisión que produzca daño o sufrimiento físico, sexual, psicológico, verbal, o económico a una persona; puede ocurrir en público o en privado. Las situaciones violentas ocurren cada vez que una persona impone su poder sobre otra vulnerando sus derechos.",
+        "secondDescription": "Los principales tipos de violencia incluyen la violencia física, que causa daño corporal; la violencia sexual, que implica actos sexuales no consentidos; la violencia psicológica, que daña la salud emocional a través de humillaciones y amenazas; la violencia verbal, el uso de palabras para menospreciar.",
+        "thirdDescription": "Las víctimas de violencia pueden acudir a varias entidades para denunciar y recibir atención, como la Línea Púrpura de la Secretaría de la Mujer, las Comisarías de Familia, la Fiscalía General de la Nación, y diversas organizaciones de la sociedad civil, las cuales brindan orientación, asesoría jurídica y acompañamiento a quienes hayan sufrido algún tipo de violencia.",
+        "fourthDescription": "Las preguntas más comunes que suelen hacerse las víctimas de violencia incluyen: ¿Qué es la violencia y cuáles son sus diferentes tipos? ¿Cómo puedo identificar si estoy siendo víctima de violencia? ¿Qué puedo hacer si estoy sufriendo algún tipo de violencia? ¿Cuáles son mis derechos como víctima de violencia? ¿Cómo puedo protegerme y mantenerme a salvo?"
+    },
+    "Header": {
+        "home": "Inicio",
+        "about": "Sobre Nosotros",
+        "help": "Ayuda",
+        "register": "Registro",
+        "login": "Iniciar"
+    },
+    "OurTeam": {
+        "title": "Sobre Nosotros",
+        "button": "Más Información"
+    },
+    "Footer": {
+        "legal": "Información Legal",
+        "privacy": "Politica de Privacidad"
+    },
+    "AboutUs": {
+        "title": "Sobre Nosotros",
+        "description": "Somos un equipo de estudiantes de la Universidad de Cundinamarca que utiliza la metodología Scrum para desarrollar un proyecto que busca mitigar casos de violencia de género, intrafamiliar, infantil y contra adultos mayores mediante un modelo de Machine Learning. Creemos en el poder de la tecnología para generar cambios positivos en la comunidad. Estamos comprometidos en hacer realidad este proyecto que marcará la diferencia para quienes sufren violencia en silencio. Agradecemos el apoyo de la universidad y de todas las personas e instituciones que respaldan esta misión."
+    },
+    "Roles": {
+        "commonUserTitle": "Usuario Común",
+        "commonUserDescription": "La lucha contra la violencia de género es algo que nos incumbe a todos, tanto a hombres como a mujeres. Empieza a realizar un cambio y generar un cambio en nuestra sociedad, haz parte de Vigen.",
+        "organizationTitle": "Organización",
+        "organizationDescription": "Entidad encargada de atención y control de casos de violencia de género, intrafamiliar, adulto mayor e infantil.",
+        "rolesButton": "Registrarse"
+    },
+    "Login": {
+        "title": "Inicar Sesión",
+        "notAccount": "No tienes cuenta?",
+        "createAccount": "Crear Cuenta",
+        "user": "Usuario",
+        "password": "Contraseña",
+        "button": "Ingresar",
+        "forgotPassword": "Olvidé mi contraseña"
+    },
+    "Register": {
+        "title": "Crear Cuenta",
+        "privacy": "Acuerdo de Privacidad",
+        "button": "Registrarse"
+    }
+}

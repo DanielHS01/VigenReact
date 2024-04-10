@@ -16,9 +16,9 @@ const Button: React.FC<ButtonProps> = ({
   const buttonVariant = () => {
     switch (variant) {
       case "primary":
-        return "bg-cyan-950 hover:bg-cyan-600 text-white";
+        return "bg-cyan-950 hover:bg-cyan-600 text-white dark:bg-indigo-100 dark:text-cyan-950 dark:hover:bg-cyan-100";
       case "secondary":
-        return "bg-transparent border border-cyan-950 hover:bg-cyan-950 hover:text-white";
+        return "bg-transparent border border-cyan-950 hover:bg-cyan-950 hover:text-white dark:border-indigo-100 dark:text-indigo-100 dark:hover:bg-indigo-100 dark:hover:text-cyan-950";
       case "outline":
         return "bg-transparent border border-white hover:bg-white hover:text-cyan-950";
     }

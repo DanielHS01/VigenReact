@@ -3,41 +3,46 @@ import { useState } from "react";
 import { FaBars, FaX } from "react-icons/fa6";
 import Button from "@/shared/ui/Button";
 import Dropdown from "@/landing/components/Header/Dropdown";
+import { useTranslation } from "react-i18next";
+import ThemeToggle from "./ThemeToggle";
 
 const NavLinks = () => {
+  const { t } = useTranslation();
   return (
     <>
       <NavLink
         to="/"
         className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
-        Inicio
+        {t("Header.home")}
       </NavLink>
       <NavLink
         to="/aboutUs"
         className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
-        Sobre Nosotros
+        {t("Header.about")}
       </NavLink>
       <NavLink
         to="/help"
         className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
-        Ayuda
+        {t("Header.help")}
       </NavLink>
     </>
   );
 };
 
 const NavButtons = () => {
+  const { t } = useTranslation();
   return (
     <>
+      <ThemeToggle />
       <Dropdown />
       <Button variant="secondary">
-        <NavLink to="/roles">Registro</NavLink>
+        <NavLink to="/roles">{t("Header.register")}</NavLink>
       </Button>
       <Button>
-        <NavLink to="/login">Inicio</NavLink>
+        <NavLink to="/login">{t("Header.login")}</NavLink>
       </Button>
     </>
   );

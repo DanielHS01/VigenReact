@@ -1,0 +1,60 @@
+{
+    "Languages": {
+        "spanish": "Spanish",
+        "english": "English"
+    } ,
+    "Hero": {
+        "title": "No to gender violence",
+        "description": "I don't wanna feel brave when I'm out, I wanna feel free"
+    },
+    "Accordion": {
+        "firstTitle": "What is that?",
+        "secondTitle": "Types of Violence",
+        "thirdTitle": "Where to Report?",
+        "fourthTitle": "Frequently Asked Questions",
+        "firstDescription": "Violence is any act, action or omission that causes physical, sexual, psychological, verbal, or economic harm or suffering to a person; it can occur in public or in private. Violent situations occur whenever a person imposes his or her power over another person, violating his or her rights.",
+        "secondDescription": "The main types of violence include physical violence, which causes bodily harm; sexual violence, which involves non-consensual sexual acts; psychological violence, which damages emotional health through humiliation and threats; verbal violence, the use of words to belittle.",
+        "thirdDescription": "Victims of violence can go to various entities to report and receive attention, such as the Purple Line of the Women's Secretariat, the Family Police Stations, the Attorney General's Office, and various civil society organizations, which provide guidance, legal advice and accompaniment to those who have suffered some type of violence.",
+        "fourthDescription": "Common questions commonly asked by victims of violence include: What is violence and what are the different types of violence? How can I identify if I am a victim of violence? What can I do if I am experiencing violence? What are my rights as a victim of violence? How can I protect myself and keep myself safe?"
+    },
+    "Header": {
+        "home": "Home",
+        "about": "About Us",
+        "help": "Help",
+        "register": "Register",
+        "login": "Login"
+    },
+    "OurTeam": {
+        "title": "About Us",
+        "button": "More Info"
+    },
+    "Footer": {
+        "legal": "Legal Information",
+        "privacy": "Privacy Policy"
+    },
+    "AboutUs": {
+        "title": "About Us",
+        "description": "We are a team of students from the Universidad de Cundinamarca that uses the Scrum methodology to develop a project that seeks to mitigate cases of gender, domestic, child and elder violence through a Machine Learning model. We believe in the power of technology to generate positive changes in the community. We are committed to making this project a reality that will make a difference for those who suffer violence in silence. We are grateful for the support of the university and all the people and institutions that support this mission."
+    },
+    "Roles": {
+        "commonUserTitle": "Common User",
+        "commonUserDescription": "The fight against gender violence is something that concerns us all, both men and women. Start making a change and generate a change in our society, be part of Vigen.",
+        "organizationTitle": "Organization",
+        "organizationDescription": "Entity in charge of attention and control of cases of gender, domestic, elder and child violence.",
+        "rolesButton": "Register"
+    },
+    "Login": {
+        "title": "Login to your account",
+        "notAccount": "You don't have an account?",
+        "createAccount": "Create Account",
+        "user": "User",
+        "password": "Password",
+        "button": "Login",
+        "forgotPassword": "I forgot my password"
+    },
+    "Register": {
+        "title": "Create Account",
+        "privacy": "Privacy Agreement",
+        "button": "Register"
+    }
+}

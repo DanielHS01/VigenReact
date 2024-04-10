@@ -15,7 +15,7 @@ const ScrollToTop = () => {
 
 const Layout = () => {
   return (
-    <div>
+    <div className="bg-cyan-50 dark:bg-cyan-950">
       <ScrollToTop />
       <Header />
       <Outlet />
