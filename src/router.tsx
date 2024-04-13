@@ -4,6 +4,7 @@ import Loading from "@/shared/Loading";
 import ErrorPage from "@/shared/ErrorPage";
 
 const Layout = lazy(() => import("@/landing/Layout"));
+const OrganizationLayout = lazy(() => import("@/organization/Layout"));
 const Home = lazy(() => import("@/landing/pages/Home"));
 const AboutUs = lazy(() => import("@/landing/pages/AboutUs"));
 const Help = lazy(() => import("@/landing/pages/Help"));
@@ -13,6 +14,9 @@ const OrganizationSignup = lazy(
   () => import("@/auth/pages/OrganizationSignup")
 );
 const UserSignup = lazy(() => import("@/auth/pages/UserSignup"));
+const OrganizationHome = lazy(() => import("@/organization/pages/Home"));
+const OrganizationInfo = lazy(() => import("@/organization/pages/EditInfo"));
+const UserHome = lazy(() => import("@/user/pages/Home"));
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +83,39 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <UserSignup />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    element: <OrganizationLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        path: "/HomeOrganization",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <OrganizationHome />
+          </Suspense>
+        ),
+      },
+      {
+        index: true,
+        path: "/EditOrganizationInfo",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <OrganizationInfo />
+          </Suspense>
+        ),
+      },
+      {
+        index: true,
+        path: "/HomeUser",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <UserHome />
           </Suspense>
         ),
       },

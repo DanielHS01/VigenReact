@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       className="hover:scale-125 justify-self-center col-span-2"
       onClick={handleTheme}
     >
-      {theme === "dark" ? <IoMoon /> : <IoSunny />}
+      {theme === "dark" ? <IoSunny /> : <IoMoon />}
     </button>
   );
 };

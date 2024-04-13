@@ -56,5 +56,23 @@
         "title": "Crear Cuenta",
         "privacy": "Acuerdo de Privacidad",
         "button": "Registrarse"
+    },
+    "HomeOrganization": {
+        "welcome": "Bienvenido a [Nombre de la Organización]",
+        "description": "Nos complace darles la bienvenida a nuestra comunidad. Estamos emocionados de tenerlos con nosotros y esperamos colaborar juntos para lograr nuestros objetivos. ¡Esperamos trabajar juntos para hacer una diferencia positiva! A continuación, encontrará dos tablas, una para ver las notificaciones hechas por las personas alrededor, y otra para ver las notificaciones que ya están siendo atendidas.",
+        "active": "Notificaciones Activas",
+        "progress": "Notificaciones en Progreso"
+    },
+    "Table": {
+        "id": "ID Usuario",
+        "title": "Título",
+        "description": "Descripción",
+        "organization": "Organización",
+        "behaviors": "Comportamientos"
+    },
+    "HomeUser": {
+        "phone": "Teléfonos de Ayuda",
+        "poll": "Encuesta",
+        "care": "Entidades de Atención"
     }
 }
