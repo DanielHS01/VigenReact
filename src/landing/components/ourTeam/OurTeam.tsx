@@ -14,7 +14,7 @@ const OurTeam = () => {
       <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row pt-10 justify-around items-center">
         <img src={ourTeam1} className="h-60 w-60 rounded-2xl" alt="" />
         <img src={ourTeam2} className="h-60 w-60 rounded-2xl" />
-        <img src={ourTeam3} className="h-60 w-60 rounded-2xl" />
+        <img src={ourTeam2} className="h-60 w-60 rounded-2xl" />
       </div>
       <div className="flex justify-center pt-10">
         <Button>

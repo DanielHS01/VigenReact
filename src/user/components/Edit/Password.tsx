@@ -7,7 +7,7 @@ const Password = () => {
 
   return (
     <FormContainer className="space-y-5 px-10">
-      <p className="text-center">{t("EditInfo.save")}</p>
+      <p className="text-center">{t("EditInfo.password")}</p>
       <Input />
       <Input />
       <Input />
