@@ -1,7 +1,6 @@
 import Button from "@/shared/ui/Button";
 import ourTeam1 from "@/assets/Nosotros1.png";
 import ourTeam2 from "@/assets/Nosotros2.png";
-import ourTeam3 from "@/assets/Nosotros3.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
