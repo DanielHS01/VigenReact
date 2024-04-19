@@ -15,9 +15,6 @@ export default {
     transparent: 'transparent',
     current: 'currentColor',
     extend: {
-      fontFamily: {
-        vigen: ["Ms Madi", "cursive"],
-      },
       colors: {
         "customCyan" : "#031928",
         tremor: {

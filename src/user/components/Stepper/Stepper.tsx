@@ -1,22 +1,28 @@
 import { ReactNode, useState } from "react";
-import OrganizationForm from "@/auth/components/Signups/OrganizationForm";
 import Button from "@/shared/ui/Button";
-import HeadquartersForm from "@/auth/components/Signups/HeadquartersForm";
+import FirstPersonalInfo from "@/user/components/Stepper/FirstPersonalInfo";
+import SecondPersonalInfo from "@/user/components/Stepper/SecondPersonalInfo";
+import Questions from "@/user/components/Stepper/Questions";
 
-interface steps {
+interface step {
   title: string;
   component: ReactNode;
 }
-const OrganizationSignup = () => {
+
+const Stepper = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const STEPS: steps[] = [
+  const STEPS: step[] = [
     {
-      title: "Organization",
-      component: <OrganizationForm />,
+      title: "Personal Info 1",
+      component: <FirstPersonalInfo />,
     },
     {
-      title: "Headquarters",
-      component: <HeadquartersForm />,
+      title: "Personal Info 2",
+      component: <SecondPersonalInfo />,
+    },
+    {
+      title: "Questions Section",
+      component: <Questions />,
     },
   ];
 
@@ -30,8 +36,9 @@ const OrganizationSignup = () => {
     setCurrentStep(currentStep - 1);
     console.log(currentStep);
   };
+
   return (
-    <div className="py-16 flex flex-col items-center justify-center">
+    <form className="max-w-2xl mx-auto mt-8 flex flex-col items-center justify-center my-5">
       <div className="flex justify-center mb-8 space-x-5 md:space-x-10">
         {STEPS.map((step, index) => (
           <div
@@ -48,9 +55,7 @@ const OrganizationSignup = () => {
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-center">
-        {STEPS[currentStep].component}
-      </div>
+      <div>{STEPS[currentStep].component}</div>
       <div>
         <div className="flex justify-end mt-8 space-x-5">
           {currentStep > 0 && (
@@ -68,8 +73,8 @@ const OrganizationSignup = () => {
           )}
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
-export default OrganizationSignup;
+export default Stepper;
