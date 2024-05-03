@@ -1,6 +1,6 @@
 import { FaFacebook, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-import Logo from "@/shared/ui/Logo";
+import Logo from "@/assets/Logo";
 
 const Footer = () => {
   const { t } = useTranslation();

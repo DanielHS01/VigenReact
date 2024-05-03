@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Nav from "@/landing/components/Header/Nav";
-import Logo from "@/shared/ui/Logo";
+import Logo from "@/assets/Logo";
 
 const Header = () => {
   return (

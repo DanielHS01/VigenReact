@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import OrganizationForm from "@/auth/components/Signups/OrganizationForm";
 import Button from "@/shared/ui/Button";
 import HeadquartersForm from "@/auth/components/Signups/HeadquartersForm";
+import { useTranslation } from "react-i18next";
 
 interface steps {
   title: string;
@@ -9,13 +10,14 @@ interface steps {
 }
 const OrganizationSignup = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const { t } = useTranslation();
   const STEPS: steps[] = [
     {
-      title: "Organization",
+      title: t("Steppers.Organization"),
       component: <OrganizationForm />,
     },
     {
-      title: "Headquarters",
+      title: t("Steppers.Headquarters"),
       component: <HeadquartersForm />,
     },
   ];
@@ -55,16 +57,16 @@ const OrganizationSignup = () => {
         <div className="flex justify-end mt-8 space-x-5">
           {currentStep > 0 && (
             <Button type="button" variant="outline" onClick={handlePrevious}>
-              Previous
+              {t("Steppers.Previous")}
             </Button>
           )}
           {currentStep < STEPS.length - 1 && (
             <Button type="button" onClick={handleNext}>
-              Next
+              {t("Steppers.Next")}
             </Button>
           )}
           {currentStep === STEPS.length - 1 && (
-            <Button type="submit">Submit</Button>
+            <Button type="submit">{t("Steppers.Submit")}</Button>
           )}
         </div>
       </div>

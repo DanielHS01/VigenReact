@@ -13,7 +13,6 @@
     "@headlessui/react": "^1.7.18",
     "@tremor/react": "^3.14.1",
     "clsx": "^2.1.0",
-    "flowbite-react": "^0.7.3",
     "formik": "^2.4.5",
     "i18next": "^23.11.0",
     "i18next-browser-languagedetector": "^7.2.1",

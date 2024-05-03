@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 import { VariantProps, tv } from "tailwind-variants";
 
 const button = tv({

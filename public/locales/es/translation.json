@@ -144,5 +144,15 @@
         "belongings": "¿Le han destruido algunas de sus pertenencias?",
         "shaken": "¿Le han sacudido, zarandeado, jaloneado o empujado?",
         "assaulted": "¿Se ha sentido agredido física o psicológicamente?"
+    },
+    "Steppers": {
+        "Organization": "Organización",
+        "Headquarters": "Sedes",
+        "PersonalInfo1": "Información Personal 1",
+        "PersonalInfo2": "Información Personal 2",
+        "Questions": "Sección de Preguntas",
+        "Previous": "Anterior",
+        "Next": "Siguiente",
+        "Submit": "Enviar"
     }
 }

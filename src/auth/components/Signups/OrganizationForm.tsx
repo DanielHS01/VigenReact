@@ -1,4 +1,3 @@
-import Button from "@/shared/ui/Button";
 import FormContainer from "@/shared/ui/FormContainer";
 import Input from "@/shared/ui/Input";
 import { useTranslation } from "react-i18next";
@@ -26,9 +25,6 @@ const OrganizationForm = () => {
         <p className="text-xs font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
           {t("Register.privacy")}
         </p>
-        <div className="flex justify-center">
-          <Button variant="outline">{t("Register.button")}</Button>
-        </div>
       </form>
     </FormContainer>
   );
