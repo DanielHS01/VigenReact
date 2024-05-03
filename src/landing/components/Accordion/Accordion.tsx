@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Accordion = () => {
@@ -8,10 +8,12 @@ const Accordion = () => {
     t("Accordion.firstDescription")
   );
   const [activeIndex, setActiveIndex] = useState(0);
-
   const handleClick = (index: number) => {
     setActiveIndex(index);
-    switch (index) {
+  };
+
+  useEffect(() => {
+    switch (activeIndex) {
       case 0:
         setTitle(t("Accordion.firstTitle"));
         setDescription(t("Accordion.firstDescription"));
@@ -31,7 +33,7 @@ const Accordion = () => {
       default:
         break;
     }
-  };
+  }, [activeIndex, t]);
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around space-x-5 relative bottom-32 text-cyan-950 p-10 dark:text-cyan-50">

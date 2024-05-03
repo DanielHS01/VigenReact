@@ -3,6 +3,7 @@ import Button from "@/shared/ui/Button";
 import FirstPersonalInfo from "@/user/components/Stepper/FirstPersonalInfo";
 import SecondPersonalInfo from "@/user/components/Stepper/SecondPersonalInfo";
 import Questions from "@/user/components/Stepper/Questions";
+import { useTranslation } from "react-i18next";
 
 interface step {
   title: string;
@@ -11,17 +12,18 @@ interface step {
 
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const { t } = useTranslation();
   const STEPS: step[] = [
     {
-      title: "Personal Info 1",
+      title: t("Steppers.PersonalInfo1"),
       component: <FirstPersonalInfo />,
     },
     {
-      title: "Personal Info 2",
+      title: t("Steppers.PersonalInfo2"),
       component: <SecondPersonalInfo />,
     },
     {
-      title: "Questions Section",
+      title: t("Steppers.Questions"),
       component: <Questions />,
     },
   ];
@@ -59,17 +61,17 @@ const Stepper = () => {
       <div>
         <div className="flex justify-end mt-8 space-x-5">
           {currentStep > 0 && (
-            <Button type="button" variant="outline" onClick={handlePrevious}>
-              Previous
+            <Button type="button" variant="secondary" onClick={handlePrevious}>
+              {t("Steppers.Previous")}
             </Button>
           )}
           {currentStep < STEPS.length - 1 && (
             <Button type="button" onClick={handleNext}>
-              Next
+              {t("Steppers.Next")}
             </Button>
           )}
           {currentStep === STEPS.length - 1 && (
-            <Button type="submit">Submit</Button>
+            <Button type="submit">{t("Steppers.Submit")}</Button>
           )}
         </div>
       </div>

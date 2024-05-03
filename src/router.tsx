@@ -114,15 +114,6 @@ export const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        index: true,
-        path: "/HomeUser",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <UserHome />
-          </Suspense>
-        ),
-      },
     ],
   },
   {

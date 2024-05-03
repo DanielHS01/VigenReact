@@ -14,6 +14,10 @@ const ThemeToggle = () => {
         document.body.classList.remove("dark");
       }
     }
+
+    return () => {
+      document.body.classList.remove("dark");
+    };
   }, []);
 
   const handleTheme = () => {
