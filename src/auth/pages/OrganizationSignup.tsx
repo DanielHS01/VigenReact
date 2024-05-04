@@ -56,7 +56,7 @@ const OrganizationSignup = () => {
       <div>
         <div className="flex justify-end mt-8 space-x-5">
           {currentStep > 0 && (
-            <Button type="button" variant="outline" onClick={handlePrevious}>
+            <Button type="button" variant="secondary" onClick={handlePrevious}>
               {t("Steppers.Previous")}
             </Button>
           )}

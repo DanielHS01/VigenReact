@@ -1,17 +1,18 @@
-import MapImage from "@/assets/map-svgrepo-com.svg";
 import Button from "@/shared/ui/Button";
 import FormContainer from "@/shared/ui/FormContainer";
 import Input from "@/shared/ui/Input";
 import Table from "@/shared/ui/Table";
 import { useTranslation } from "react-i18next";
+import "@/auth/components/Maps/OrganizationMap.css";
+import OrganizationMap from "../Maps/OrganizationMap";
 
 const HeadquartersForm = () => {
   const { t } = useTranslation();
 
   return (
     <div className="w-full flex flex-col items-center justify-center md:flex-row md:justify-evenly space-y-5 md:space-y-0">
-      <div className="flex flex-col items-center justify-center order-last md:order-first">
-        <img src={MapImage} width="400px" alt="" />
+      <div className="flex flex-col items-center justify-center order-last md:order-first space-y-5 mt-5 md:mt-0">
+        <OrganizationMap />
         <Table className="w-96 md:mx-0">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
             <tr>
@@ -51,7 +52,7 @@ const HeadquartersForm = () => {
           </tbody>
         </Table>
       </div>
-      <FormContainer className="">
+      <FormContainer>
         <p className="text-center text-xs font-semibold lg:text-sm uppercase mt-3 mb-5">
           {t("Register.headquarters")}
         </p>
