@@ -22,7 +22,8 @@
         "about": "About Us",
         "help": "Help",
         "register": "Register",
-        "login": "Login"
+        "login": "Login",
+        "logout": "Logout"
     },
     "OurTeam": {
         "title": "About Us",
@@ -44,10 +45,10 @@
         "rolesButton": "Register"
     },
     "Login": {
-        "title": "Login to your account",
+        "title": "Sign In",
         "notAccount": "You don't have an account?",
         "createAccount": "Create Account",
-        "user": "User",
+        "id": "Identification",
         "password": "Password",
         "button": "Login",
         "forgotPassword": "I forgot my password"
@@ -62,10 +63,14 @@
         "tel": "Telephone",
         "indicative": "Indicative",
         "cellphone": "Cellphone",
-        "add": "Add"
+        "add": "Add",
+        "delete": "Delete",
+        "registerHeadquarters": "Register Headquartesrs",
+        "success": "Signup Successful!",
+        "error": "Error while signing up"
     },
     "HomeOrganization": {
-        "welcome": "Welcome to [Name of the Organization]",
+        "welcome": "Welcome, ",
         "description": "We are pleased to welcome you to our community. We are excited to have you with us and look forward to collaborating together to achieve our goals. We hope to work together to make a positive difference! Below, you will find two tables, the first one is to see the notifications made by people around your area, and the second one is to see the notifications that are already being addressed.",
         "active": "Active Notifications",
         "progress": "In Progress Notifications"
@@ -87,7 +92,18 @@
         "basic": "Basic Information",
         "contact": "Contact Information",
         "password": "Change Password",
-        "save": "Save Information"
+        "save": "Save Information",
+        "identification": "Identification",
+        "name": "Name",
+        "gender": "Gender",
+        "marital_status": "Marital Status",
+        "email": "Email",
+        "occupation": "Occupation",
+        "country_code": "Indicative",
+        "phone": "Phone",
+        "postal_code": "Postal Code",
+        "location": "Location",
+        "newPassword": "New Password"
     },
     "Poll": {
         "title": "Poll",
@@ -154,5 +170,14 @@
         "Previous": "Previous",
         "Next": "Next",
         "Submit": "Submit"
+    },
+    "UserMenu": {
+        "Profile": "Profile",
+        "Alerts": "Alerts",
+        "Poll": "Poll",
+        "Settings": "Settings",
+        "Statistics": "Statistics",
+        "Reports": "Reports",
+        "Logout": "Logout"
     }
 }

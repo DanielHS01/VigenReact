@@ -1,12 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loading from "@/shared/Loading";
 import ErrorPage from "@/shared/ErrorPage";
+import { AuthProvider } from "@/contexts/authProvider"; // Importa el AuthProvider aquí
+import ProtectedRoute from "@/auth/services/protectedRoute"; // Importa el componente de rutas protegidas
 
+// Layout principal
 const Layout = lazy(() => import("@/landing/Layout"));
-const OrganizationLayout = lazy(() => import("@/organization/Layout"));
-const UserLayout = lazy(() => import("@/user/Layout"));
+
+// Páginas
 const Home = lazy(() => import("@/landing/pages/Home"));
 const AboutUs = lazy(() => import("@/landing/pages/AboutUs"));
 const Help = lazy(() => import("@/landing/pages/Help"));
@@ -15,7 +18,11 @@ const Login = lazy(() => import("@/auth/pages/Login"));
 const OrganizationSignup = lazy(
   () => import("@/auth/pages/OrganizationSignup")
 );
+const HeadquartersSignup = lazy(
+  () => import("@/auth/pages/HeadquartersSignup")
+);
 const UserSignup = lazy(() => import("@/auth/pages/UserSignup"));
+const VerificationCode = lazy(() => import("@/auth/pages/VerificationCode"));
 const OrganizationHome = lazy(() => import("@/organization/pages/Home"));
 const OrganizationInfo = lazy(() => import("@/organization/pages/EditInfo"));
 const UserHome = lazy(() => import("@/user/pages/Home"));
@@ -24,127 +31,70 @@ const Poll = lazy(() => import("@/user/pages/Poll"));
 
 export const router = createBrowserRouter([
   {
-    element: <Layout />,
+    path: "/",
+    element: (
+      <AuthProvider>
+        <Suspense fallback={<Loading />}>
+          <Layout />
+        </Suspense>
+      </AuthProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
+      { path: "/", element: <Home /> },
+      { path: "/aboutUs", element: <AboutUs /> },
+      { path: "/help", element: <Help /> },
+      { path: "/login", element: <Login /> },
+      { path: "/roles", element: <Roles /> },
+      { path: "/organizationSignup", element: <OrganizationSignup /> },
+      { path: "/headquarterSignup", element: <HeadquartersSignup /> },
+      { path: "/userSignup", element: <UserSignup /> },
+
+      // Rutas protegidas de la organización
       {
-        index: true,
-        path: "/",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/aboutUs",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <AboutUs />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/help",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Help />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/login",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Login />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/roles",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Roles />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/organizationSignup",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <OrganizationSignup />
-          </Suspense>
-        ),
-      },
-      {
-        index: true,
-        path: "/userSignup",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <UserSignup />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {
-    element: <OrganizationLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
         path: "/HomeOrganization",
         element: (
-          <Suspense fallback={<Loading />}>
+          <ProtectedRoute>
             <OrganizationHome />
-          </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
-        index: true,
         path: "/EditOrganizationInfo",
         element: (
-          <Suspense fallback={<Loading />}>
+          <ProtectedRoute>
             <OrganizationInfo />
-          </Suspense>
+          </ProtectedRoute>
         ),
       },
-    ],
-  },
-  {
-    element: <UserLayout />,
-    errorElement: <ErrorPage />,
-    children: [
+
+      // Rutas protegidas del usuario
       {
-        index: true,
+        path: "/Verification",
+        element: <VerificationCode />,
+      },
+      {
         path: "/HomeUser",
         element: (
-          <Suspense fallback={<Loading />}>
+          <ProtectedRoute>
             <UserHome />
-          </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
-        index: true,
         path: "/EditUserInfo",
         element: (
-          <Suspense fallback={<Loading />}>
+          <ProtectedRoute>
             <UserInfo />
-          </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
-        index: true,
         path: "/Poll",
         element: (
-          <Suspense fallback={<Loading />}>
+          <ProtectedRoute>
             <Poll />
-          </Suspense>
+          </ProtectedRoute>
         ),
       },
     ],

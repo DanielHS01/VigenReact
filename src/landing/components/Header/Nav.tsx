@@ -5,6 +5,8 @@ import Button from "@/shared/ui/Button";
 import Dropdown from "@/landing/components/Header/Dropdown";
 import { useTranslation } from "react-i18next";
 import ThemeToggle from "./ThemeToggle";
+import UserMenu from "./UserMenu";
+import { useAuth } from "@/contexts/authContext"; // Importar el AuthContext
 
 const NavLinks = () => {
   const { t } = useTranslation();
@@ -26,7 +28,7 @@ const NavLinks = () => {
         to="/help"
         className="hover:underline underline-offset-2 transition-colors rounded-lg"
       >
-        {t("Header.help")}
+        FAQ
       </NavLink>
     </>
   );
@@ -34,6 +36,24 @@ const NavLinks = () => {
 
 const NavButtons = () => {
   const { t } = useTranslation();
+  const { userData, isAuthenticated, logout } = useAuth(); // Usar el contexto de autenticación
+
+  let userInitial = "";
+  if (userData) {
+    userInitial = userData.name.charAt(0).toUpperCase();
+  }
+
+  if (isAuthenticated) {
+    return (
+      <>
+        <ThemeToggle />
+        <Dropdown />
+        {/* Mostrar el UserMenu si el usuario está autenticado */}
+        <UserMenu userInitial={userInitial} handleLogout={logout} />
+      </>
+    );
+  }
+
   return (
     <>
       <ThemeToggle />
@@ -50,13 +70,15 @@ const NavButtons = () => {
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <nav
-        className=" w-7/12 md:w-10/12 lg:w-7/12 justify-end md:justify-between items-center flex"
+        className="w-7/12 md:w-10/12 lg:w-7/12 justify-end md:justify-between items-center flex"
         id="topNavbar"
       >
         <div className="hidden md:flex space-x-5">
@@ -71,6 +93,7 @@ const Nav = () => {
           </button>
         </div>
       </nav>
+
       {isOpen && (
         <>
           <div className="flex flex-col items-center basis-full animate-fade-down space-y-4 text-xl md:hidden mb-5">
