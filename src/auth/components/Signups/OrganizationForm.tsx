@@ -1,33 +1,102 @@
+// OrganizationRegistration.tsx
 import FormContainer from "@/shared/ui/FormContainer";
 import Input from "@/shared/ui/Input";
+import Button from "@/shared/ui/Button";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import {
+  OrganizationData,
+  registerOrganization,
+} from "@/auth/services/authServices";
 
-const OrganizationForm = () => {
+const OrganizationRegistration = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<OrganizationData>({
+    nit: "",
+    password: "",
+    name: "",
+    tel: "",
+    phone: "",
+    organizationTypeID: 1, // Default organization type ID
+  });
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await registerOrganization(formData);
+      setSuccessMessage(t("Register.success"));
+      setErrorMessage(null);
+
+      setTimeout(() => {
+        navigate("/headquarterSignup");
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to register organization:", error);
+      setSuccessMessage(null);
+      setErrorMessage(t("Register.error"));
+    }
+  };
 
   return (
-    <FormContainer className="space-y-10 pt-10">
-      <p className="text-center text-xs font-semibold lg:text-sm uppercase">
+    <FormContainer>
+      <h2 className="text-center text-lg font-semibold mb-4">
         {t("Register.title")}
-      </p>
-      <form action="" className="space-y-5">
-        <Input type="text" placeholder="NIT" />
-        <Input type="text" placeholder="Organización" />
-        <Input type="text" placeholder="Teléfono" />
-        <div className="flex space-x-5">
-          <Input type="text" placeholder="Indicativo" />
-          <Input type="text" placeholder="Celular" />
-        </div>
-        <div className="flex space-x-5">
-          <Input type="text" placeholder="Contraseña" />
-          <Input type="text" placeholder="Confirmar Contraseña" />
-        </div>
-        <p className="text-xs font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
-          {t("Register.privacy")}
-        </p>
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <Input
+          type="text"
+          name="nit"
+          placeholder="NIT"
+          value={formData.nit}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="name"
+          placeholder="Organización"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="tel"
+          placeholder="Teléfono"
+          value={formData.tel}
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="phone"
+          placeholder="Celular"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <Button type="submit">{t("Register.button")}</Button>
+        {successMessage && (
+          <p className="text-green-500 text-center mb-4">{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p className="text-red-500 text-center mb-4">{errorMessage}</p>
+        )}
       </form>
     </FormContainer>
   );
 };
 
-export default OrganizationForm;
+export default OrganizationRegistration;

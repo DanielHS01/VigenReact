@@ -22,7 +22,8 @@
         "about": "Sobre Nosotros",
         "help": "Ayuda",
         "register": "Registro",
-        "login": "Iniciar"
+        "login": "Iniciar",
+        "logout": "Cerrar Sesión"
     },
     "OurTeam": {
         "title": "Sobre Nosotros",
@@ -47,7 +48,7 @@
         "title": "Inicar Sesión",
         "notAccount": "No tienes cuenta?",
         "createAccount": "Crear Cuenta",
-        "user": "Usuario",
+        "id": "Identificación",
         "password": "Contraseña",
         "button": "Ingresar",
         "forgotPassword": "Olvidé mi contraseña"
@@ -62,10 +63,14 @@
         "tel": "Teléfono",
         "indicative": "Indicativo",
         "cellphone": "Celular",
-        "add": "Añadir"
+        "add": "Añadir",
+        "delete": "Eliminar",
+        "registerHeadquarters": "Registrar Sedes",
+        "success": "¡Registro Exitoso!",
+        "error": "Error al registrar"
     },
     "HomeOrganization": {
-        "welcome": "Bienvenido a [Nombre de la Organización]",
+        "welcome": "Bienvenido, ",
         "description": "Nos complace darles la bienvenida a nuestra comunidad. Estamos emocionados de tenerlos con nosotros y esperamos colaborar juntos para lograr nuestros objetivos. ¡Esperamos trabajar juntos para hacer una diferencia positiva! A continuación, encontrará dos tablas, una para ver las notificaciones hechas por las personas alrededor, y otra para ver las notificaciones que ya están siendo atendidas.",
         "active": "Notificaciones Activas",
         "progress": "Notificaciones en Progreso"
@@ -87,7 +92,18 @@
         "basic": "Información Básica",
         "contact": "Información de Contacto",
         "password": "Cambiar Contraseña",
-        "save": "Guardar Información"
+        "save": "Guardar Información",
+        "identification": "Identificación",
+        "name": "Nombre",
+        "gender": "Género",
+        "marital_status": "Estado Civil",
+        "email": "Correo",
+        "occupation": "Ocupación",
+        "country_code": "Indicativo",
+        "phone": "Teléfono",
+        "postal_code": "Código Postal",
+        "location": "Ubicación",
+        "newPassword": "Nueva Contraseña"
     },
     "Poll": {
         "title": "Encuesta",
@@ -154,5 +170,14 @@
         "Previous": "Anterior",
         "Next": "Siguiente",
         "Submit": "Enviar"
+    },
+    "UserMenu": {
+        "Profile": "Perfil",
+        "Alerts": "Alertas",
+        "Poll": "Encuesta",
+        "Settings": "Configuración",
+        "Statistics": "Estadísticas",
+        "Reports": "Reportes",
+        "Logout": "Cerrar Sesión"
     }
 }
