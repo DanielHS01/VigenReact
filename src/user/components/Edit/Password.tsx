@@ -20,8 +20,9 @@ const Password = ({ formData, onInputChange }: PasswordProps) => {
     <FormContainer className="space-y-5 px-10">
       <p className="text-center">{t("EditInfo.password")}</p>
       <div className="flex flex-col">
-        <label>Contraseña Actual</label>
+        <label htmlFor="user-password">Contraseña Actual</label>
         <Input
+          id="user-password"
           type="password"
           value={pass}
           placeholder="1234567890"

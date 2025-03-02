@@ -112,7 +112,7 @@ const UserMenu = ({
             <p>{t("UserMenu.Reports")}</p>
           </button>
           <button
-            onClick={() => navigate("/organizationSettings")}
+            onClick={() => navigate("/EditOrganizationInfo")}
             className="w-full space-x-2 px-4 py-2 hover:bg-cyan-600 flex items-center dark:hover:bg-cyan-100 transition-colors"
           >
             <FaGear />
@@ -127,12 +127,12 @@ const UserMenu = ({
   return (
     <div className="relative justify-self-center col-span-2" ref={menuRef}>
       {/* Círculo con la inicial del usuario */}
-      <span
+      <button
         onClick={toggleMenu}
         className="cursor-pointer h-10 w-10 bg-cyan-950 hover:bg-cyan-600 text-white dark:bg-cyan-50 dark:text-cyan-950 dark:hover:bg-cyan-100 rounded-full flex justify-center items-center transition-colors"
       >
         {userInitial}
-      </span>
+      </button>
 
       {/* Menú desplegable */}
       {menuOpen && (

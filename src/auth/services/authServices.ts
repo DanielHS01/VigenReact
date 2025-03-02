@@ -104,7 +104,7 @@ export const updateUser = async (userId: string, updatedData: Partial<RegisterDa
       let errorMessage = "Error al actualizar el usuario.";
       try {
         const errorData = await response.json();
-        if (errorData && errorData.message) {
+        if (errorData?.message) {
           errorMessage += ` ${errorData.message}`;
         }
       } catch (jsonError) {

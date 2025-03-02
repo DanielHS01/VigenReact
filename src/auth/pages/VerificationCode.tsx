@@ -69,8 +69,9 @@ const VerificationCode = () => {
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
           <div className="flex flex-col">
-            <label>Código de verificación</label>
+            <label htmlFor="verification-code">Código de verificación</label>
             <Input
+              id="verification-code"
               type="text"
               value={code}
               onChange={(e) => setCode(e.target.value)}

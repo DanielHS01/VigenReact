@@ -17,9 +17,7 @@ const EditForm = () => {
         </div>
         <div className="flex flex-col justify-center items-center space-y-10">
           <Password />
-          <Button variant="primary" className="text-red">
-            {t("EditInfo.save")}
-          </Button>
+          <Button variant="primary">{t("EditInfo.save")}</Button>
         </div>
       </form>
     </>

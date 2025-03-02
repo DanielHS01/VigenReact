@@ -76,9 +76,9 @@ const Helps = () => {
   return (
     <div className="bg-indigo-100 text-cyan-950 dark:bg-cyan-900 dark:text-cyan-50">
       <div className="w-full relative bottom-16 flex flex-col md:flex-row items-center justify-around space-y-10 md:space-y-0 px-10 py-28 bg-indigo-100 text-cyan-950 dark:bg-cyan-900 dark:text-cyan-50">
-        {HELP_CARDS.map((item, index) => (
+        {HELP_CARDS.map((item) => (
           <button
-            key={index}
+            key={item.title}
             onClick={() =>
               item.navigateTo ? navigate(item.navigateTo) : item.onClick?.()
             }

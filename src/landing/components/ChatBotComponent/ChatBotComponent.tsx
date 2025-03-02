@@ -6,10 +6,11 @@ import {
   IoSendSharp,
 } from "react-icons/io5";
 
-// Use the same Hugging Face client from the original code
+// Cliente de Hugging Face
 const client = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY);
 
 interface Message {
+  id: string; // ✅ Se agrega un identificador único
   role: "user" | "assistant" | "system";
   content: string;
 }
@@ -27,7 +28,12 @@ const ChatBotComponent = () => {
   const handleStreamResponse = async () => {
     setLoading(true);
 
-    const userMessage: Message = { role: "user", content: prompt };
+    const userMessage: Message = {
+      id: crypto.randomUUID(), // ✅ Se genera un ID único
+      role: "user",
+      content: prompt,
+    };
+
     setConversation((prev) => [...prev, userMessage]);
     setPrompt("");
 
@@ -35,6 +41,7 @@ const ChatBotComponent = () => {
 
     const initialMessages: Message[] = [
       {
+        id: crypto.randomUUID(),
         role: "system",
         content:
           "You are a supportive assistant named Valentine who speaks in a compassionate, empathetic manner. You provide understanding, reassurance, and possible explanations. Always respond in the language the user uses in their prompt. Keep your messages concise and friendly.",
@@ -48,21 +55,28 @@ const ChatBotComponent = () => {
       max_tokens: 500,
     });
 
-    // Initialize a new assistant message
-    setConversation((prev) => [...prev, { role: "assistant", content: "" }]);
+    // ✅ Se inicializa el mensaje del asistente con un ID único
+    const assistantMessage: Message = {
+      id: crypto.randomUUID(),
+      role: "assistant",
+      content: "",
+    };
+
+    setConversation((prev) => [...prev, assistantMessage]);
 
     for await (const chunk of stream) {
       if (chunk.choices && chunk.choices.length > 0) {
         const newContent = chunk.choices[0].delta.content;
         accumulatedResponse += newContent;
 
-        // Update the last assistant message
-        setConversation((prev) => {
-          const updatedConversation = [...prev];
-          updatedConversation[updatedConversation.length - 1].content =
-            accumulatedResponse;
-          return updatedConversation;
-        });
+        // ✅ Se actualiza el mensaje del asistente sin reemplazar todo el array
+        setConversation((prev) =>
+          prev.map((msg) =>
+            msg.id === assistantMessage.id
+              ? { ...msg, content: accumulatedResponse }
+              : msg
+          )
+        );
       }
     }
 
@@ -70,7 +84,8 @@ const ChatBotComponent = () => {
   };
 
   return (
-    <div className="fixed bottom-10 right-10">
+    <div className="fixed bottom-10 right-10 z-10">
+      {/* Botón de abrir chat */}
       <button
         onClick={toggleChat}
         className={`${
@@ -80,11 +95,13 @@ const ChatBotComponent = () => {
         <IoChatboxEllipsesOutline className="w-7 h-7 -rotate-45" />
       </button>
 
+      {/* Ventana de chat */}
       <div
         className={`${
           isChatOpen ? "h-[500px] opacity-100" : "h-0 opacity-0"
         } flex flex-col bg-cyan-50 dark:bg-customCyan shadow-2xl rounded-lg overflow-hidden transition-all duration-300 ease-in-out fixed bottom-10 right-10 w-[300px]`}
       >
+        {/* Header del chat */}
         <div className="flex flex-row bg-cyan-950 items-center text-white p-3 rounded-t-lg">
           <div className="flex items-center justify-center h-10 w-10 rounded-full bg-cyan-600 font-bold">
             VS
@@ -95,24 +112,21 @@ const ChatBotComponent = () => {
           </button>
         </div>
 
+        {/* Mensajes */}
         <div className="flex flex-col px-3 mt-4 overflow-y-auto h-96">
-          {conversation.map((message, index) => (
+          {conversation.map((message) => (
             <div
-              key={index}
-              className={`
-                ${
-                  message.role === "user"
-                    ? "self-end bg-cyan-800"
-                    : "bg-cyan-950"
-                } 
-                p-2 rounded-2xl mb-2 max-w-[80%] text-white
-              `}
+              key={message.id} // ✅ Ahora usa un ID único en lugar del índice
+              className={`${
+                message.role === "user" ? "self-end bg-cyan-800" : "bg-cyan-950"
+              } p-2 rounded-2xl mb-2 max-w-[80%] text-white`}
             >
               {message.content}
             </div>
           ))}
         </div>
 
+        {/* Input y botón de enviar */}
         <div className="py-4 flex justify-center items-center">
           <input
             value={prompt}

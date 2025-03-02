@@ -32,8 +32,8 @@ const Carousel: React.FC<CarouselProps> = ({
           className="flex transition-transform ease-out duration-500"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
-          {slides.map((s, index) => (
-            <img src={s} key={index} height="500px" width="1500px" alt="" />
+          {slides.map((s) => (
+            <img src={s} key={s} height="500px" width="1500px" alt="" />
           ))}
         </div>
         <div className="absolute inset-0 flex items-center justify-between px-12">
@@ -52,11 +52,11 @@ const Carousel: React.FC<CarouselProps> = ({
         </div>
         <div className="absolute top-4 right-0 left-0">
           <div className="flex items-center justify-center gap-2">
-            {slides.map((_, index) => (
+            {slides.map((s) => (
               <div
-                key={index}
+                key={s}
                 className={`transition-all w-5 h-2 bg-cyan-50 rounded-full ${
-                  current == index ? "" : "bg-opacity-50"
+                  current == slides.indexOf(s) ? "" : "bg-opacity-50"
                 }`}
               ></div>
             ))}

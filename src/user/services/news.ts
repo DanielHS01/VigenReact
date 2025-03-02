@@ -5,7 +5,7 @@ const today = new Date();
 
 // Create a new date object to represent half a month (15 days) ago
 const halfMonthAgo = new Date(today);
-halfMonthAgo.setDate(today.getDate() - 15);
+halfMonthAgo.setDate(today.getDate() - 30);
 
 // Ensure the date adjustment doesn't overflow or behave unexpectedly
 // No need for additional manual month boundary checks

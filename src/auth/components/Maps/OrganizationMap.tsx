@@ -28,9 +28,13 @@ const OrganizationMap = () => {
     );
   }, []);
 
-  const handleMarkerClick = (index: number) => {
+  const handleMarkerClick = (positionToRemove: LatLngTuple) => {
     setMarkerPositions((prevPositions) =>
-      prevPositions.filter((_, i) => i !== index)
+      prevPositions.filter(
+        (position) =>
+          position[0] !== positionToRemove[0] ||
+          position[1] !== positionToRemove[1]
+      )
     );
   };
 
@@ -43,15 +47,18 @@ const OrganizationMap = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapClickHandler setMarkerPositions={setMarkerPositions} />
-          {markerPositions.map((position, index) => (
-            <Marker
-              key={index}
-              position={position}
-              eventHandlers={{
-                click: () => handleMarkerClick(index),
-              }}
-            />
-          ))}
+          {markerPositions.map((position) => {
+            const positionKey = `${position[0]}-${position[1]}`; // 🔹 Usamos una key única basada en las coordenadas
+            return (
+              <Marker
+                key={positionKey}
+                position={position}
+                eventHandlers={{
+                  click: () => handleMarkerClick(position),
+                }}
+              />
+            );
+          })}
         </MapContainer>
       )}
     </>

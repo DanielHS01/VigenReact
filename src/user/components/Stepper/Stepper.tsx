@@ -5,7 +5,7 @@ import SecondPersonalInfo from "@/user/components/Stepper/SecondPersonalInfo";
 import Questions from "@/user/components/Stepper/Questions";
 import { useTranslation } from "react-i18next";
 
-interface step {
+interface Step {
   title: string;
   component: ReactNode;
 }
@@ -13,7 +13,7 @@ interface step {
 const Stepper = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const { t } = useTranslation();
-  const STEPS: step[] = [
+  const STEPS: Step[] = [
     {
       title: t("Steppers.PersonalInfo1"),
       component: <FirstPersonalInfo />,
@@ -43,8 +43,8 @@ const Stepper = () => {
     <form className="max-w-2xl mx-auto mt-8 flex flex-col items-center justify-center my-5">
       <div className="flex justify-center mb-8 space-x-5 md:space-x-10">
         {STEPS.map((step, index) => (
-          <div
-            key={index}
+          <button
+            key={step.title}
             className={`flex items-center cursor-pointer ${
               index === currentStep
                 ? "text-cyan-500"
@@ -54,7 +54,7 @@ const Stepper = () => {
           >
             <span className="font-bold mr-2 hidden md:flex">{index + 1}.</span>
             <span>{step.title}</span>
-          </div>
+          </button>
         ))}
       </div>
       <div>{STEPS[currentStep].component}</div>

@@ -38,39 +38,40 @@ const Accordion = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:justify-around space-x-5 relative bottom-32 text-cyan-950 p-10 dark:text-cyan-50">
       <div className="flex flex-col space-y-2 bg-white p-5 w-64 rounded-2xl shadow-2xl dark:bg-customCyan">
-        <p
+        <button
           className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 0 ? "underline" : ""
           }`}
           onClick={() => handleClick(0)}
         >
           {t("Accordion.firstTitle")}
-        </p>
-        <p
+        </button>
+        <button
           className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 1 ? "underline" : ""
           }`}
           onClick={() => handleClick(1)}
         >
           {t("Accordion.secondTitle")}
-        </p>
-        <p
+        </button>
+        <button
           className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 2 ? "underline" : ""
           }`}
           onClick={() => handleClick(2)}
         >
           {t("Accordion.thirdTitle")}
-        </p>
-        <p
+        </button>
+        <button
           className={`cursor-pointer hover:bg-gray-200 transition-colors p-1 rounded-md dark:hover:bg-cyan-800 ${
             activeIndex === 3 ? "underline" : ""
           }`}
           onClick={() => handleClick(3)}
         >
           {t("Accordion.fourthTitle")}
-        </p>
+        </button>
       </div>
+
       <div className="bg-white flex w-64 md:w-[45rem] p-5 rounded-2xl shadow-2xl dark:bg-customCyan">
         <div className="flex flex-col">
           <h2 className="text-2xl font-medium mb-1 flex text-start">{title}</h2>
