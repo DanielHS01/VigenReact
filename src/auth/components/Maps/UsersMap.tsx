@@ -15,31 +15,53 @@ interface UsersMapProps {
 }
 
 const UsersMap = ({ onLocationSelect }: UsersMapProps) => {
-  const [location, setLocation] = useState<Location>();
+  const [location, setLocation] = useState<Location | null>(null);
   const [markerPosition, setMarkerPosition] = useState<LatLngTuple | null>(
     null
   );
+  const [hasPermission, setHasPermission] = useState<boolean>(false);
 
-  // Obtener la ubicación actual del usuario
+  // Función para solicitar permiso de ubicación
+  const requestLocationPermission = () => {
+    if (
+      window.confirm(
+        "¿Permitir acceso a tu ubicación para mejorar la experiencia del mapa?"
+      )
+    ) {
+      setHasPermission(true);
+    }
+  };
+
+  // Obtener la ubicación actual del usuario solo si se ha otorgado permiso
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        const currentLocation = {
-          lng: position.coords.longitude,
-          lat: position.coords.latitude,
-        };
-        setLocation(currentLocation);
-        onLocationSelect(currentLocation); // Enviar la ubicación inicial al componente padre
-      },
-      function (error) {
-        console.log(error);
-      },
-      { enableHighAccuracy: true }
-    );
-  }, [onLocationSelect]);
+    if (!hasPermission) return;
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const currentLocation = {
+            lng: position.coords.longitude,
+            lat: position.coords.latitude,
+          };
+          setLocation(currentLocation);
+          onLocationSelect(currentLocation); // Enviar la ubicación inicial al componente padre
+        },
+        (error) => {
+          console.error("Error obteniendo la ubicación:", error);
+        },
+        { enableHighAccuracy: true }
+      );
+    }
+  }, [hasPermission, onLocationSelect]);
 
   return (
     <>
+      <button
+        onClick={requestLocationPermission}
+        className="mb-4 p-2 bg-blue-500 text-white rounded"
+      >
+        Permitir ubicación
+      </button>
       {location && (
         <MapContainer
           center={location}

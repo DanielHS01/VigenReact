@@ -31,6 +31,12 @@ const UserForm = ({ location }: UserFormProps) => {
     confirmPassword: "",
   });
 
+  const generateSecureCode = () => {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return ((array[0] % 9000) + 1000).toString(); // Asegurar que esté en el rango 1000-9999
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -42,12 +48,12 @@ const UserForm = ({ location }: UserFormProps) => {
     e.preventDefault();
 
     if (location) {
-      const randomCode = Math.floor(1000 + Math.random() * 9000).toString();
+      const randomCode = generateSecureCode(); // Código generado de forma segura
 
       const dataToSend: RegisterData = {
         ...formData,
-        ubication: `${location.lat}, ${location.lng}`, // Actualizamos la ubicación
-        Code: randomCode, // Generamos el código
+        ubication: `${location.lat}, ${location.lng}`,
+        Code: randomCode,
         CountryCode: formData.country_code,
         PostalCode: formData.postal_code,
         MaritalStatus: formData.marital_status,
@@ -148,7 +154,6 @@ const UserForm = ({ location }: UserFormProps) => {
             onChange={handleChange}
           />
         </div>
-
         <p className="text-xs font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
           {t("Register.privacy")}
         </p>

@@ -10,23 +10,38 @@ interface Location {
 }
 
 const OrganizationMap = () => {
-  const [location, setLocation] = useState<Location>();
+  const [location, setLocation] = useState<Location | null>(null);
   const [markerPositions, setMarkerPositions] = useState<LatLngTuple[]>([]);
+  const [hasPermission, setHasPermission] = useState<boolean>(false);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        setLocation({
-          lng: position.coords.longitude,
-          lat: position.coords.latitude,
-        });
-      },
-      function (error) {
-        console.log(error);
-      },
-      { enableHighAccuracy: true }
-    );
-  }, []);
+    if (!hasPermission) return;
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            lng: position.coords.longitude,
+            lat: position.coords.latitude,
+          });
+        },
+        (error) => {
+          console.error("Error obteniendo la ubicación:", error);
+        },
+        { enableHighAccuracy: true }
+      );
+    }
+  }, [hasPermission]);
+
+  const requestLocationPermission = () => {
+    if (
+      window.confirm(
+        "¿Permitir acceso a tu ubicación para mejorar la experiencia del mapa?"
+      )
+    ) {
+      setHasPermission(true);
+    }
+  };
 
   const handleMarkerClick = (positionToRemove: LatLngTuple) => {
     setMarkerPositions((prevPositions) =>
@@ -40,6 +55,12 @@ const OrganizationMap = () => {
 
   return (
     <>
+      <button
+        onClick={requestLocationPermission}
+        className="mb-4 p-2 bg-blue-500 text-white rounded"
+      >
+        Permitir ubicación
+      </button>
       {location && (
         <MapContainer center={[location.lat, location.lng]} zoom={30}>
           <TileLayer
@@ -48,7 +69,7 @@ const OrganizationMap = () => {
           />
           <MapClickHandler setMarkerPositions={setMarkerPositions} />
           {markerPositions.map((position) => {
-            const positionKey = `${position[0]}-${position[1]}`; // 🔹 Usamos una key única basada en las coordenadas
+            const positionKey = `${position[0]}-${position[1]}`;
             return (
               <Marker
                 key={positionKey}
