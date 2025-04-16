@@ -90,7 +90,7 @@ const ChatBotComponent = () => {
         onClick={toggleChat}
         className={`${
           isChatOpen ? "hidden" : "flex"
-        } bg-customCyan border border-transparent hover:ring-offset-0 hover:ring-2 hover:ring-blue-500/80 hover:opacity-100 rotate-45 text-white w-16 h-16 items-center opacity-90 justify-center font-bold rounded-lg fixed bottom-10 right-10`}
+        } bg-customCyan dark:bg-cyan-50 border border-transparent hover:ring-offset-0 hover:ring-2 dark:hover:ring-violet-500 hover:ring-blue-500/80 hover:opacity-100 rotate-45 text-cyan-50 dark:text-customCyan w-16 h-16 items-center opacity-90 justify-center font-bold rounded-lg fixed bottom-10 right-10`}
       >
         <IoChatboxEllipsesOutline className="w-7 h-7 -rotate-45" />
       </button>
