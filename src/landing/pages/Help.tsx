@@ -1,10 +1,7 @@
+import FaqComponent from "@/landing/components/FAQComponent/FaqComponent";
 
 const Help = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+  return <FaqComponent/>;
 };
 
 export default Help;
