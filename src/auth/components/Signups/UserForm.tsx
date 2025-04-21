@@ -49,9 +49,11 @@ const UserForm = ({ location }: UserFormProps) => {
 
     if (location) {
       const randomCode = generateSecureCode(); // Código generado de forma segura
+      const birthdateWithTime = new Date(formData.birthdate).toISOString();
 
       const dataToSend: RegisterData = {
         ...formData,
+        birthdate: birthdateWithTime,
         ubication: `${location.lat}, ${location.lng}`,
         Code: randomCode,
         CountryCode: formData.country_code,
