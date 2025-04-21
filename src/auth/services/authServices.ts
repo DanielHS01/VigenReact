@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:44385/api';
+const BASE_URL = 'https://vigenbackend.up.railway.app/api';
 
 export interface RegisterData {
     identification: string;
