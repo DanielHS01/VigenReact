@@ -67,7 +67,9 @@
         "delete": "Delete",
         "registerHeadquarters": "Register Headquartesrs",
         "success": "Signup Successful!",
-        "error": "Error while signing up"
+        "error": "Error while signing up",
+        "noLocation":"No Location",
+        "actions":"Actions"
     },
     "HomeOrganization": {
         "welcome": "Welcome, ",

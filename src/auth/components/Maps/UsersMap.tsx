@@ -2,8 +2,22 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./UsersMap.css";
 import { useEffect, useState } from "react";
-import { LatLngTuple } from "leaflet";
+import { LatLngTuple} from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
+
+// Configuración para los íconos de Leaflet
+import L from "leaflet";
+
+// Crear un ícono personalizado para el marcador
+const customIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 interface Location {
   lat: number;
@@ -16,78 +30,75 @@ interface UsersMapProps {
 
 const UsersMap = ({ onLocationSelect }: UsersMapProps) => {
   const [location, setLocation] = useState<Location | null>(null);
-  const [markerPosition, setMarkerPosition] = useState<LatLngTuple | null>(
-    null
-  );
-  const [hasPermission, setHasPermission] = useState<boolean>(false);
+  const [markerPosition, setMarkerPosition] = useState<LatLngTuple | null>(null);
+  const [isGeolocationSet, setIsGeolocationSet] = useState(false); // Controlar si la geolocalización ya se estableció
 
-  // Función para solicitar permiso de ubicación
-  const requestLocationPermission = () => {
-    if (
-      window.confirm(
-        "¿Permitir acceso a tu ubicación para mejorar la experiencia del mapa?"
-      )
-    ) {
-      setHasPermission(true);
-    }
-  };
-
-  // Obtener la ubicación actual del usuario solo si se ha otorgado permiso
+  // Obtener la ubicación actual del usuario automáticamente al cargar el componente
   useEffect(() => {
-    if (!hasPermission) return;
+    if (isGeolocationSet) return; // Evitar que se ejecute de nuevo si ya se estableció la geolocalización
 
     if ("geolocation" in navigator) {
+      console.log("Solicitando geolocalización...");
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const currentLocation = {
-            lng: position.coords.longitude,
             lat: position.coords.latitude,
+            lng: position.coords.longitude,
           };
+          console.log("Ubicación obtenida con éxito:", currentLocation);
           setLocation(currentLocation);
-          onLocationSelect(currentLocation); // Enviar la ubicación inicial al componente padre
+          setMarkerPosition([currentLocation.lat, currentLocation.lng]);
+          onLocationSelect(currentLocation);
+          setIsGeolocationSet(true); // Marcar que la geolocalización ya se estableció
         },
         (error) => {
-          console.error("Error obteniendo la ubicación:", error);
+          console.error("Error obteniendo la ubicación:", error.message, "Código de error:", error.code);
+          // Ubicación por defecto: Universidad de Cundinamarca, Facatativá
+          const defaultLocation = { lat: 4.8118, lng: -74.3545 };
+          console.log("Usando ubicación por defecto (Universidad de Cundinamarca, Facatativá):", defaultLocation);
+          setLocation(defaultLocation);
+          setMarkerPosition([defaultLocation.lat, defaultLocation.lng]);
+          onLocationSelect(defaultLocation);
+          setIsGeolocationSet(true); // Marcar que la geolocalización ya se estableció
         },
-        { enableHighAccuracy: true }
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
       );
+    } else {
+      console.error("Geolocalización no soportada por el navegador");
+      // Ubicación por defecto: Universidad de Cundinamarca, Facatativá
+      const defaultLocation = { lat: 4.8118, lng: -74.3545 };
+      console.log("Usando ubicación por defecto (Universidad de Cundinamarca, Facatativá):", defaultLocation);
+      setLocation(defaultLocation);
+      setMarkerPosition([defaultLocation.lat, defaultLocation.lng]);
+      onLocationSelect(defaultLocation);
+      setIsGeolocationSet(true); // Marcar que la geolocalización ya se estableció
     }
-  }, [hasPermission, onLocationSelect]);
+  }, [onLocationSelect, isGeolocationSet]);
 
   return (
     <>
-      <button
-        onClick={requestLocationPermission}
-        className="mb-4 p-2 bg-blue-500 text-white rounded"
-      >
-        Permitir ubicación
-      </button>
-      {location && (
+      {location && markerPosition && (
         <MapContainer
-          center={location}
+          center={markerPosition} // Centrar el mapa en la posición del marcador
           zoom={15}
           style={{ height: "350px", width: "30%" }}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapClickHandler
             setMarkerPosition={setMarkerPosition}
             onLocationSelect={onLocationSelect}
           />
-          {markerPosition ? (
-            <Marker position={markerPosition} />
-          ) : (
-            <Marker position={location} />
-          )}
+          <Marker position={markerPosition} icon={customIcon} />
         </MapContainer>
       )}
     </>
   );
 };
 
-// Componente para manejar el clic en el mapa
+// Componente para manejar el clic en el mapa y mover el marcador
 const MapClickHandler = ({
   setMarkerPosition,
   onLocationSelect,
@@ -95,12 +106,14 @@ const MapClickHandler = ({
   setMarkerPosition: (position: LatLngTuple) => void;
   onLocationSelect: (location: Location) => void;
 }) => {
-  useMapEvents({
+  const map = useMapEvents({
     click: (event) => {
+      console.log("Clic detectado en el mapa:", event.latlng); // Depuración para confirmar que el clic se registra
       const { latlng } = event;
       const newLocation = { lat: latlng.lat, lng: latlng.lng };
-      setMarkerPosition([latlng.lat, latlng.lng]);
-      onLocationSelect(newLocation); // Notificar al componente padre sobre la nueva ubicación
+      setMarkerPosition([latlng.lat, latlng.lng]); // Actualizar la posición del marcador
+      onLocationSelect(newLocation); // Notificar al componente padre
+      map.flyTo([latlng.lat, latlng.lng], map.getZoom()); // Centrar el mapa en la nueva posición
     },
   });
 

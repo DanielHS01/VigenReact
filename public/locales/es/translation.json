@@ -67,7 +67,9 @@
         "delete": "Eliminar",
         "registerHeadquarters": "Registrar Sedes",
         "success": "¡Registro Exitoso!",
-        "error": "Error al registrar"
+        "error": "Error al registrar",
+        "noLocation":"No hay ubicación",
+        "actions":"Acciones"
     },
     "HomeOrganization": {
         "welcome": "Bienvenido, ",

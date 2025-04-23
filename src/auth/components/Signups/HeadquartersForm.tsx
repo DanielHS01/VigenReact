@@ -23,9 +23,7 @@ const HeadquartersForm = () => {
     phone: "",
     tel: "",
   });
-  const [headquartersList, setHeadquartersList] = useState<HeadquartersData[]>(
-    []
-  );
+  const [headquartersList, setHeadquartersList] = useState<HeadquartersData[]>([]);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -34,12 +32,22 @@ const HeadquartersForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleLocationSelect = (location: { lat: number; lng: number }) => {
+    const locationString = `${location.lat}, ${location.lng}`;
+    setFormData((prev) => ({ ...prev, ubication: locationString }));
+  };
+
   const handleAddHeadquarter = () => {
+    if (!formData.ubication) {
+      setErrorMessage(t("Register.noLocation"));
+      return;
+    }
     setHeadquartersList([
       ...headquartersList,
       { ...formData, id: String(Date.now()) },
     ]);
     setFormData({ ...formData, ubication: "", phone: "", tel: "" });
+    setErrorMessage(null);
   };
 
   const handleRegisterHeadquarters = async (e: React.FormEvent) => {
@@ -69,16 +77,16 @@ const HeadquartersForm = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center md:flex-row md:justify-evenly space-y-5 md:space-y-0">
       <div className="flex flex-col items-center justify-center order-last md:order-first space-y-5 mt-5 md:mt-0">
-        <OrganizationMap />
+        <OrganizationMap onLocationSelect={handleLocationSelect} />
         <Table className="w-96 md:mx-0">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
             <tr>
               <th>#</th>
               <th>NIT</th>
-              <th>Ubicación</th>
-              <th>Teléfono</th>
-              <th>Celular</th>
-              <th>Acciones</th>
+              <th>{t("Register.location")}</th>
+              <th>{t("Register.tel")}</th>
+              <th>{t("Register.cellphone")}</th>
+              <th>{t("Register.actions")}</th>
             </tr>
           </thead>
           <tbody>
@@ -117,21 +125,21 @@ const HeadquartersForm = () => {
           <Input
             type="text"
             name="ubication"
-            placeholder="Ubicación"
+            placeholder={t("Register.location")}
             value={formData.ubication}
             onChange={handleChange}
           />
           <Input
             type="text"
             name="phone"
-            placeholder="Celular"
+            placeholder={t("Register.cellphone")}
             value={formData.phone}
             onChange={handleChange}
           />
           <Input
             type="text"
             name="tel"
-            placeholder="Teléfono"
+            placeholder={t("Register.tel")}
             value={formData.tel}
             onChange={handleChange}
           />
