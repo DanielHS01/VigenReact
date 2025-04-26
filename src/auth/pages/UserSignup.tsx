@@ -14,12 +14,14 @@ const UserSignup = () => {
   };
 
   return (
-    <div className="p-16 flex flex-col justify-center space-y-10 md:space-y-0 items-center md:flex-row md:justify-center md:items-start md:gap-32">
+    <div className="p-16 flex flex-col w-full justify-center space-y-10 md:space-y-0 items-center md:flex-row md:justify-center md:items-start md:gap-32">
       {/* Pasar la ubicación seleccionada y el manejador de ubicación al formulario */}
       <UserForm location={location} />
-
+      
       {/* Pasar la función para seleccionar la ubicación al mapa */}
-      <UsersMap onLocationSelect={handleLocationSelect} />
+      <div className="w-full md:w-96 h-64 md:h-96">
+  <UsersMap onLocationSelect={handleLocationSelect} />
+</div>
     </div>
   );
 };

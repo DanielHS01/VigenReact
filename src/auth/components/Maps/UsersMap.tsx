@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./UsersMap.css";
 import { useEffect, useState } from "react";
-import { LatLngTuple} from "leaflet";
+import { LatLngTuple } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 
 // Configuración para los íconos de Leaflet
@@ -78,21 +78,23 @@ const UsersMap = ({ onLocationSelect }: UsersMapProps) => {
   return (
     <>
       {location && markerPosition && (
-        <MapContainer
-          center={markerPosition} // Centrar el mapa en la posición del marcador
-          zoom={15}
-          style={{ height: "350px", width: "30%" }}
-        >
-          <TileLayer
-            attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <MapClickHandler
-            setMarkerPosition={setMarkerPosition}
-            onLocationSelect={onLocationSelect}
-          />
-          <Marker position={markerPosition} icon={customIcon} />
-        </MapContainer>
+        <div className="w-full h-full">
+          <MapContainer
+            center={markerPosition} // Centrar el mapa en la posición del marcador
+            zoom={15}
+            style={{ width: "100%", height: "100%" }} // Hacer que el mapa ocupe el 100% del contenedor padre
+          >
+            <TileLayer
+              attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <MapClickHandler
+              setMarkerPosition={setMarkerPosition}
+              onLocationSelect={onLocationSelect}
+            />
+            <Marker position={markerPosition} icon={customIcon} />
+          </MapContainer>
+        </div>
       )}
     </>
   );
