@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./OrganizationMap.css";
 import { useEffect, useState } from "react";
-import { LatLngTuple} from "leaflet";
+import { LatLngTuple } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 
 // Configuración para los íconos de Leaflet
@@ -81,33 +81,35 @@ const OrganizationMap = ({ onLocationSelect }: OrganizationMapProps) => {
   return (
     <>
       {location && (
-        <MapContainer
-          center={[location.lat, location.lng]}
-          zoom={15}
-          
-        >
-          <TileLayer
-            attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <MapClickHandler
-            setMarkerPositions={setMarkerPositions}
-            onLocationSelect={onLocationSelect}
-          />
-          {markerPositions.map((position) => {
-            const positionKey = `${position[0]}-${position[1]}`;
-            return (
-              <Marker
-                key={positionKey}
-                position={position}
-                icon={customIcon}
-                eventHandlers={{
-                  click: () => handleMarkerClick(position),
-                }}
-              />
-            );
-          })}
-        </MapContainer>
+        <div className="w-full h-full">
+          <MapContainer
+            center={[location.lat, location.lng]}
+            zoom={15}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <TileLayer
+              attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <MapClickHandler
+              setMarkerPositions={setMarkerPositions}
+              onLocationSelect={onLocationSelect}
+            />
+            {markerPositions.map((position) => {
+              const positionKey = `${position[0]}-${position[1]}`;
+              return (
+                <Marker
+                  key={positionKey}
+                  position={position}
+                  icon={customIcon}
+                  eventHandlers={{
+                    click: () => handleMarkerClick(position),
+                  }}
+                />
+              );
+            })}
+          </MapContainer>
+        </div>
       )}
     </>
   );
