@@ -25,6 +25,7 @@ const UserSignup = lazy(() => import("@/auth/pages/UserSignup"));
 const VerificationCode = lazy(() => import("@/auth/pages/VerificationCode"));
 const OrganizationHome = lazy(() => import("@/organization/pages/Home"));
 const OrganizationInfo = lazy(() => import("@/organization/pages/EditInfo"));
+const Statistics = lazy(() => import("@/organization/pages/Statistics"));
 const UserHome = lazy(() => import("@/user/pages/Home"));
 const UserInfo = lazy(() => import("@/user/pages/EditInfo"));
 const Poll = lazy(() => import("@/user/pages/Poll"));
@@ -64,6 +65,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <OrganizationInfo />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/Statistics",
+        element: (
+          <ProtectedRoute>
+            <Statistics />
           </ProtectedRoute>
         ),
       },

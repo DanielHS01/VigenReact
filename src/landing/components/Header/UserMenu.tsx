@@ -11,6 +11,11 @@ import {
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie"; // Importar la librería de cookies
 import { IoAlertCircle } from "react-icons/io5";
+import {
+  downloadUserReport,
+  downloadNotifyReport,
+} from "@/organization/services/reportsService";
+import Button from "@/shared/ui/Button";
 
 const UserMenu = ({
   userInitial,
@@ -20,6 +25,7 @@ const UserMenu = ({
   handleLogout: () => void;
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef<HTMLDivElement>(null); // Referencia para el menú
   const { t } = useTranslation();
@@ -98,14 +104,14 @@ const UserMenu = ({
             <p>{t("UserMenu.Alerts")}</p>
           </button>
           <button
-            onClick={() => navigate("/HomeOrganization")}
+            onClick={() => navigate("/Statistics")}
             className="w-full space-x-2 px-4 py-2 hover:bg-cyan-600 flex items-center dark:hover:bg-cyan-100 transition-colors"
           >
             <FaChartSimple />
             <p>{t("UserMenu.Statistics")}</p>
           </button>
           <button
-            onClick={() => navigate("/organizationMembers")}
+            onClick={() => setReportModalOpen(true)} // <-- abrir modal
             className="w-full space-x-2 px-4 py-2 hover:bg-cyan-600 flex items-center dark:hover:bg-cyan-100 transition-colors"
           >
             <FaAddressBook />
@@ -145,6 +151,42 @@ const UserMenu = ({
             <FaArrowRightFromBracket />
             <p>{t("UserMenu.Logout")}</p>
           </button>
+        </div>
+      )}
+
+      {reportModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-80 dark:bg-cyan-950 dark:text-white">
+            <h2 className="text-xl mb-4 font-bold">Selecciona un reporte</h2>
+            <div className="flex flex-col space-y-4">
+              <Button
+                variant="primary"
+                onClick={async () => {
+                  await downloadUserReport(); // Llamar servicio
+                  setReportModalOpen(false); // Cerrar modal después
+                }}
+                className="bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded"
+              >
+                Reporte de Usuarios
+              </Button>
+              <Button
+                variant="primary"
+                onClick={async () => {
+                  await downloadNotifyReport(); // Llamar servicio
+                  setReportModalOpen(false); // Cerrar modal después
+                }}
+                className="bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded"
+              >
+                Reporte de Alertas
+              </Button>
+            </div>
+            <button
+              onClick={() => setReportModalOpen(false)}
+              className="mt-6 text-cyan-600 hover:underline"
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
       )}
     </div>
