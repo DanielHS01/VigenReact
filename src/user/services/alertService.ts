@@ -10,7 +10,7 @@ export interface AlertData {
   
   export const sendAlert = async (data: AlertData): Promise<void> => {
     try {
-      const response = await fetch("https://localhost:44385/api/Notify", {
+      const response = await fetch("https://vigenbackend.up.railway.app/api/Notify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

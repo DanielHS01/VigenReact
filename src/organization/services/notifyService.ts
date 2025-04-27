@@ -16,7 +16,7 @@ export interface Alert {
   
   export const fetchAlerts = async (): Promise<Alert[]> => {
     try {
-      const response = await fetch("https://localhost:44385/api/Notify");
+      const response = await fetch("https://vigenbackend.up.railway.app/api/Notify");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -30,7 +30,7 @@ export interface Alert {
 
   export const updateAlertState = async (alert: Alert): Promise<void> => {
     try {
-      const response = await fetch(`https://localhost:44385/api/Notify/${alert.id}`, {
+      const response = await fetch(`https://vigenbackend.up.railway.app/api/Notify/${alert.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export interface Alert {
   
   export const deleteAlert = async (id: number): Promise<void> => {
     try {
-      const response = await fetch(`https://localhost:44385/api/Notify/${id}`, {
+      const response = await fetch(`https://vigenbackend.up.railway.app/api/Notify/${id}`, {
         method: "DELETE",
       });
   
@@ -64,7 +64,7 @@ export interface Alert {
 
   export const fetchOrganizationType = async (id: number): Promise<OrganizationType> => {
     try {
-      const response = await fetch(`https://localhost:44385/api/OrganizationType/${id}`);
+      const response = await fetch(`https://vigenbackend.up.railway.app/api/OrganizationType/${id}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
