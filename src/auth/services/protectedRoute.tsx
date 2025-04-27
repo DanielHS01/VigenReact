@@ -1,25 +1,34 @@
 import React from "react";
-import { useAuth } from "@/contexts/authContext"; // Asegúrate de importar el contexto de autenticación
+import { useAuth } from "@/contexts/authContext";
 import { Navigate } from "react-router-dom";
 
 interface ProtectedRouteProps {
   children: JSX.Element;
+  allowedType?: "User" | "Organization"; // <- Aceptamos un tipo permitido opcional
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { userData, isAuthenticated } = useAuth(); // Obtén el estado de autenticación desde el contexto
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  children,
+  allowedType,
+}) => {
+  const { userData, isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    // Si no está autenticado, redirige al login
     return <Navigate to="/login" />;
   }
 
   if (userData && userData.type === "User" && !userData.verification) {
-    // Redirige a verificación si el usuario aún no ha sido verificado
     return <Navigate to="/Verification" />;
   }
 
-  // Si está autenticado, renderiza el componente hijo (la ruta protegida)
+  // 👇 Aquí controlamos que solo pueda entrar si su tipo coincide
+  if (allowedType && userData?.type !== allowedType) {
+    // Opcional: redirige a su home correcto
+    const redirectPath =
+      userData?.type === "Organization" ? "/HomeOrganization" : "/HomeUser";
+    return <Navigate to={redirectPath} replace />;
+  }
+
   return children;
 };
 

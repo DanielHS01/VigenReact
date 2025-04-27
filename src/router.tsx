@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
       {
         path: "/HomeOrganization",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="Organization">
             <OrganizationHome />
           </ProtectedRoute>
         ),
@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
       {
         path: "/EditOrganizationInfo",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="Organization">
             <OrganizationInfo />
           </ProtectedRoute>
         ),
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
       {
         path: "/Statistics",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="Organization">
             <Statistics />
           </ProtectedRoute>
         ),
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
       {
         path: "/HomeUser",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="User">
             <UserHome />
           </ProtectedRoute>
         ),
@@ -93,7 +93,7 @@ export const router = createBrowserRouter([
       {
         path: "/EditUserInfo",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="User">
             <UserInfo />
           </ProtectedRoute>
         ),
@@ -101,7 +101,7 @@ export const router = createBrowserRouter([
       {
         path: "/Poll",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedType="User">
             <Poll />
           </ProtectedRoute>
         ),
