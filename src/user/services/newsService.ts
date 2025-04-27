@@ -4,7 +4,7 @@
  */
 
 // URL base del backend (ajusta según tu entorno)
-const API_BASE_URL = "https://localhost:44385";
+const API_BASE_URL = "https://vigenbackend.up.railway.app";
 
 // Interfaces para tipar las respuestas del backend
 interface Source {
