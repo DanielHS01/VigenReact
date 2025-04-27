@@ -211,5 +211,22 @@
     "Statistics": "Estadísticas",
     "Reports": "Reportes",
     "Logout": "Cerrar Sesión"
-  }
+  },
+  "faq": {
+      "title": "Preguntas frecuentes",
+      "description": "Esta sección está diseñada para responder preguntas muy generales; sin embargo, si buscas respuestas más específicas o personalizadas, no dudes en consultar a nuestro asistente virtual Valentine.",
+      "imageAlt": "Imagen de FAQ",
+      "whatIsViolence": "¿Qué se entiende por violencia?",
+      "whatIsViolenceAnswer": "La violencia es el uso intencional de la fuerza física o del poder, de manera real o en forma de amenaza, contra uno mismo, otra persona o un grupo. Puede causar lesiones, daños psicológicos, problemas de desarrollo o privaciones, y se manifiesta en ámbitos como el familiar, escolar, laboral o comunitario.",
+      "commonViolenceTypes": "¿Cuáles son los tipos de violencia más comunes?",
+      "commonViolenceTypesAnswer": "Existen varios tipos de violencia. La violencia física incluye golpes, empujones y uso de armas. La violencia psicológica comprende insultos, humillaciones y amenazas. La violencia sexual abarca tocamientos forzados, abuso y acoso. La violencia económica se manifiesta en el control del dinero o la privación de recursos. La violencia simbólica se basa en estereotipos y discriminación que legitiman el maltrato.",
+      "violenceTriggers": "¿Qué factores pueden desencadenar actos de violencia?",
+      "violenceTriggersAnswer": "A nivel individual, influyen la baja tolerancia a la frustración, problemas de autocontrol o un historial de abuso. En lo relacional, juegan un papel las dinámicas de poder desiguales, los celos y la falta de comunicación. En el plano social y cultural, las normas que normalizan la fuerza, las desigualdades de género o clase y la impunidad pueden favorecerla. Además, el estrés derivado de la pobreza o el desempleo suele aumentar las tensiones.",
+      "preventViolence": "¿Cómo prevenir y actuar ante situaciones de violencia?",
+      "preventViolenceAnswer": "Para prevenir la violencia, es esencial fomentar la educación en valores como el respeto, la empatía y la comunicación asertiva, así como participar en programas de sensibilización impulsados por la Consejería Presidencial para la Equidad de la Mujer y otras entidades estatales; pero si enfrentas o eres testigo de un acto violento, marca el 123 para emergencias, la Línea 155 para orientación en casos de violencia de género, la 141 para denunciar maltrato infantil, acude a las Comisarías de Familia para atención y denuncias de violencia intrafamiliar, y para asesoría legal o presentar denuncias formales ante la Fiscalía General de la Nación llama a la línea gratuita nacional 018000 919748.",
+      "violencePreventionPrograms": "¿Qué programas existen para prevenir la violencia?",
+      "violencePreventionProgramsAnswer": "Hay varios programas para prevenir la violencia, como talleres educativos en escuelas y comunidades que promueven el respeto y la resolución pacífica de conflictos. En Colombia, la Consejería Presidencial para la Equidad de la Mujer impulsa campañas contra la violencia de género, mientras que el ICBF ofrece programas para proteger a niños y niñas. También existen iniciativas locales que fomentan la mediación comunitaria y el apoyo psicológico.",
+      "violenceAwarenessStrategies": "¿Qué estrategias se usan para concienciar sobre la violencia?",
+      "violenceAwarenessStrategiesAnswer": "Las estrategias de concienciación incluyen campañas en redes sociales, charlas en colegios y eventos comunitarios que explican los tipos de violencia y cómo prevenirla. Se usan materiales como videos, afiches y obras de teatro para llegar a más personas. Además, programas de radio y televisión, junto con capacitaciones a líderes comunitarios, ayudan a difundir mensajes de respeto y equidad."
+    }
 }

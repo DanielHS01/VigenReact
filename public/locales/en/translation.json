@@ -210,5 +210,22 @@
     "Statistics": "Statistics",
     "Reports": "Reports",
     "Logout": "Logout"
-  }
+  },
+  "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "This section is designed to answer very general questions; however, if you are looking for more specific or personalized answers, feel free to consult our virtual assistant Valentine.",
+      "imageAlt": "FAQ Image",
+      "whatIsViolence": "What is meant by violence?",
+      "whatIsViolenceAnswer": "Violence is the intentional use of physical force or power, whether actual or threatened, against oneself, another person, or a group. It can cause injuries, psychological harm, developmental issues, or deprivation, and manifests in settings such as family, school, workplace, or community.",
+      "commonViolenceTypes": "What are the most common types of violence?",
+      "commonViolenceTypesAnswer": "There are several types of violence. Physical violence includes hitting, pushing, and using weapons. Psychological violence involves insults, humiliation, and threats. Sexual violence encompasses forced touching, abuse, and harassment. Economic violence manifests as control over money or resource deprivation. Symbolic violence is based on stereotypes and discrimination that legitimize mistreatment.",
+      "violenceTriggers": "What factors can trigger acts of violence?",
+      "violenceTriggersAnswer": "At an individual level, factors include low frustration tolerance, self-control issues, or a history of abuse. In relationships, unequal power dynamics, jealousy, and lack of communication play a role. At a social and cultural level, norms that normalize force, gender or class inequalities, and impunity can contribute. Additionally, stress from poverty or unemployment often heightens tensions.",
+      "preventViolence": "How can we prevent and respond to violent situations?",
+      "preventViolenceAnswer": "To prevent violence, it is essential to promote education in values such as respect, empathy, and assertive communication, as well as participate in awareness programs led by the Presidential Council for Women's Equity and other state entities. If you face or witness a violent act, call 123 for emergencies, Line 155 for guidance on gender-based violence, 141 to report child abuse, visit Family Commissariats for assistance and reports of domestic violence, and for legal advice or to file formal complaints with the Attorney General's Office, call the toll-free national line 018000 919748.",
+      "violencePreventionPrograms": "What programs exist to prevent violence?",
+      "violencePreventionProgramsAnswer": "There are several programs to prevent violence, such as educational workshops in schools and communities that promote respect and peaceful conflict resolution. In Colombia, the Presidential Council for Women's Equity runs campaigns against gender-based violence, while the ICBF offers programs to protect children. There are also local initiatives that encourage community mediation and psychological support.",
+      "violenceAwarenessStrategies": "What strategies are used to raise awareness about violence?",
+      "violenceAwarenessStrategiesAnswer": "Awareness strategies include social media campaigns, school talks, and community events that explain the types of violence and how to prevent them. Materials like videos, posters, and theater plays are used to reach more people. Additionally, radio and television programs, along with training for community leaders, help spread messages of respect and equity."
+    }
 }
