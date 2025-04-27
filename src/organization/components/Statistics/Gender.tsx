@@ -56,7 +56,7 @@ const Gender = () => {
           outerRadius={120}
           label
         >
-          {data.map((entry, index) => (
+          {data.map((_, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
