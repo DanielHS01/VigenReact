@@ -18,7 +18,7 @@ const OrganizationRegistration = () => {
     name: "",
     tel: "",
     phone: "",
-    organizationTypeID: 1, // Default organization type ID
+    organizationTypeId: 1, // Default organization type ID
   });
   const [errors, setErrors] = useState<
     Partial<Record<keyof OrganizationData, string>>
@@ -28,7 +28,9 @@ const OrganizationRegistration = () => {
 
   // Validación para un campo específico (en onBlur)
   const validateField = (name: keyof OrganizationData, value: string) => {
-    const newErrors: Partial<Record<keyof OrganizationData, string>> = { ...errors };
+    const newErrors: Partial<Record<keyof OrganizationData, string>> = {
+      ...errors,
+    };
 
     switch (name) {
       case "nit": {
