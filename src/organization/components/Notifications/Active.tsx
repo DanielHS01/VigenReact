@@ -9,7 +9,6 @@ import {
   deleteAlert,
 } from "@/organization/services/notifyService";
 import { IoCheckbox, IoTrashBinSharp } from "react-icons/io5";
-import Cookies from "js-cookie";
 
 interface AlertWithOrgName extends Alert {
   organizationName: string;
@@ -23,24 +22,10 @@ const Active = () => {
   useEffect(() => {
     const getAlertsWithOrgNames = async () => {
       try {
-        const userDataCookie = Cookies.get("userData");
-        if (!userDataCookie) {
-          setError("No se encontró información de usuario.");
-          return;
-        }
-        const userData = JSON.parse(userDataCookie);
-
-        // 3. Obtener el organizationTypeId
-        const organizationTypeId = userData.organizationType;
         const alertsData = await fetchAlerts();
-        console.log("AlertData: ", alertsData);
         const alertsWithOrgNames = await Promise.all(
           alertsData
-            .filter(
-              (alert) =>
-                alert.stateId === 0 &&
-                alert.organizationTypeId === organizationTypeId
-            ) // Filtra las alertas con stateId igual a 0
+            .filter((alert) => alert.stateId === 0) // Filtra las alertas con stateId igual a 0
             .map(async (alert) => {
               const organization = await fetchOrganizationType(
                 alert.organizationTypeId
