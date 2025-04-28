@@ -45,6 +45,7 @@ const LoginForm = () => {
       } else {
         // Si el login de usuario falla, intentar como organización
         const orgData = await loginOrganization(username, password);
+        console.log("Org Data: ", orgData);
 
         if (orgData?.token) {
           // Login de organización exitoso
@@ -54,6 +55,7 @@ const LoginForm = () => {
             nit: orgData.nit,
             tel: orgData.tel,
             phone: orgData.phone,
+            organizationTypeId: orgData.organizationType,
             type: "Organization",
           });
         } else {

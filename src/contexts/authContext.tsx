@@ -20,6 +20,7 @@ export interface UserData {
   tel?: string;
   verification?: boolean;
   password?: string;
+  organizationTypeId?: number;
 }
 
 // Define la interfaz para el contexto de autenticación

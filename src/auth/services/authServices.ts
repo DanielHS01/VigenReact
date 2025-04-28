@@ -22,7 +22,7 @@ export interface RegisterData {
     name: string;
     tel: string;
     phone: string;
-    organizationTypeID: number;
+    organizationTypeId: number;
   }
   
   export interface HeadquartersData {
