@@ -44,7 +44,7 @@ const Education = () => {
   if (loading) return <div>Cargando niveles educativos...</div>;
 
   return (
-    <div className="w-full h-[400px]">
+    <div style={{ textAlign: "center" }} className="w-full h-[400px]">
       <ResponsiveContainer>
         <PieChart>
           <Pie

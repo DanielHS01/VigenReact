@@ -227,5 +227,12 @@
       "violencePreventionProgramsAnswer": "There are several programs to prevent violence, such as educational workshops in schools and communities that promote respect and peaceful conflict resolution. In Colombia, the Presidential Council for Women's Equity runs campaigns against gender-based violence, while the ICBF offers programs to protect children. There are also local initiatives that encourage community mediation and psychological support.",
       "violenceAwarenessStrategies": "What strategies are used to raise awareness about violence?",
       "violenceAwarenessStrategiesAnswer": "Awareness strategies include social media campaigns, school talks, and community events that explain the types of violence and how to prevent them. Materials like videos, posters, and theater plays are used to reach more people. Additionally, radio and television programs, along with training for community leaders, help spread messages of respect and equity."
+    },
+    "statisticsDashboard": {
+      "title": "Statistics Dashboard",
+      "gender": "Gender Distribution",
+      "violence": "Violence Statistics",
+      "education": "Education Levels",
+      "orientation": "Orientation Statistics"
     }
 }
