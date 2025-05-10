@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPolls, Poll } from "@/organization/services/pollService.ts";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 interface DataItem {
   name: string;
@@ -44,9 +44,9 @@ const Gender = () => {
   const COLORS = ["#0088FE", "#FF8042", "#00C49F"];
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Distribución de Género</h2>
-      <PieChart width={400} height={400}>
+    <div style={{ textAlign: "center" }} className="w-full h-[400px]">
+      <ResponsiveContainer>
+      <PieChart>
         <Pie
           data={data}
           dataKey="value"
@@ -63,6 +63,8 @@ const Gender = () => {
         <Tooltip />
         <Legend />
       </PieChart>
+      </ResponsiveContainer>
+      
     </div>
   );
 };

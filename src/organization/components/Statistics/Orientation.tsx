@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useEffect, useState } from "react";
 import { getPolls } from "@/organization/services/pollService";
 import { getOrientationData } from "@/organization/utils/orientationUtils";
@@ -15,7 +15,9 @@ function Orientation() {
   }, []);
 
   return (
-    <PieChart width={400} height={400}>
+    <div style={{ textAlign: "center" }} className="w-full h-[400px]">
+      <ResponsiveContainer>
+      <PieChart>
       <Pie
         data={data}
         cx="50%"
@@ -33,6 +35,9 @@ function Orientation() {
       <Tooltip />
       <Legend />
     </PieChart>
+      </ResponsiveContainer>
+      
+    </div>
   );
 }
 

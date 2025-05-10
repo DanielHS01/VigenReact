@@ -228,5 +228,12 @@
       "violencePreventionProgramsAnswer": "Hay varios programas para prevenir la violencia, como talleres educativos en escuelas y comunidades que promueven el respeto y la resolución pacífica de conflictos. En Colombia, la Consejería Presidencial para la Equidad de la Mujer impulsa campañas contra la violencia de género, mientras que el ICBF ofrece programas para proteger a niños y niñas. También existen iniciativas locales que fomentan la mediación comunitaria y el apoyo psicológico.",
       "violenceAwarenessStrategies": "¿Qué estrategias se usan para concienciar sobre la violencia?",
       "violenceAwarenessStrategiesAnswer": "Las estrategias de concienciación incluyen campañas en redes sociales, charlas en colegios y eventos comunitarios que explican los tipos de violencia y cómo prevenirla. Se usan materiales como videos, afiches y obras de teatro para llegar a más personas. Además, programas de radio y televisión, junto con capacitaciones a líderes comunitarios, ayudan a difundir mensajes de respeto y equidad."
+    },
+    "statisticsDashboard": {
+      "title": "Tablero de Estadísticas",
+      "gender": "Distribución de Género",
+      "violence": "Estadísticas de Violencia",
+      "education": "Niveles de Educación",
+      "orientation": "Estadísticas de Orientación"
     }
 }
