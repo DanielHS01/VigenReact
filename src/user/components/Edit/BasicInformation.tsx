@@ -28,7 +28,7 @@ const BasicInformation = ({
           value={formData.identification}
           placeholder={t("EditInfo.identification")}
           onChange={(e) => onInputChange("identification", e.target.value)}
-          readOnly
+          disabled
           className="bg-slate-200"
         />
       </div>

@@ -105,7 +105,8 @@
     "welcome": "Bienvenido, ",
     "description": "Nos complace darles la bienvenida a nuestra comunidad. Estamos emocionados de tenerlos con nosotros y esperamos colaborar juntos para lograr nuestros objetivos. ¡Esperamos trabajar juntos para hacer una diferencia positiva! A continuación, encontrará dos tablas, una para ver las notificaciones hechas por las personas alrededor, y otra para ver las notificaciones que ya están siendo atendidas.",
     "active": "Notificaciones Activas",
-    "progress": "Notificaciones en Progreso"
+    "progress": "Notificaciones en Progreso",
+    "userData": "Datos del Usuario"
   },
   "Table": {
     "id": "ID Usuario",
@@ -135,7 +136,9 @@
     "phone": "Teléfono",
     "postal_code": "Código Postal",
     "location": "Ubicación",
-    "newPassword": "Nueva Contraseña"
+    "currentPassword": "Contraseña Actual",
+    "newPassword": "Nueva Contraseña",
+    "success": "Datos cambiados correctamente"
   },
   "Poll": {
     "title": "Encuesta",

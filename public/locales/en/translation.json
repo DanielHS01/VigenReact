@@ -104,7 +104,8 @@
     "welcome": "Welcome, ",
     "description": "We are pleased to welcome you to our community. We are excited to have you with us and look forward to collaborating together to achieve our goals. We hope to work together to make a positive difference! Below, you will find two tables, the first one is to see the notifications made by people around your area, and the second one is to see the notifications that are already being addressed.",
     "active": "Active Notifications",
-    "progress": "In Progress Notifications"
+    "progress": "In Progress Notifications",
+    "userData": "User Data"
   },
   "Table": {
     "id": "User ID",
@@ -134,7 +135,9 @@
     "phone": "Phone",
     "postal_code": "Postal Code",
     "location": "Location",
-    "newPassword": "New Password"
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "success": "Changed info successfully"
   },
   "Poll": {
     "title": "Poll",

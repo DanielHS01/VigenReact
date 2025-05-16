@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 
 const EditForm = () => {
   const { t } = useTranslation();
+  const [currentPassword, setCurrentPassword] = useState("");
   const [formData, setFormData] = useState({
     identification: "",
     name: "",
@@ -25,7 +26,7 @@ const EditForm = () => {
     verification: "",
     code: "",
   });
-  const rawCookie = Cookies.get("userData"); // Cambia 'cookie_name' al nombre real de tu cookie
+  const rawCookie = Cookies.get("userData");
   const userId = rawCookie
     ? JSON.parse(decodeURIComponent(rawCookie)).identification
     : null;
@@ -49,10 +50,12 @@ const EditForm = () => {
           phone: userData.phone || prevData.phone,
           postalCode: userData.postalCode || prevData.postalCode,
           ubication: userData.ubication || prevData.ubication,
-          password: prevData.password,
+          password: userData.password || prevData.password,
           verification: userData.verification,
           code: userData.code,
         }));
+        setCurrentPassword(userData.password);
+        console.log("userData:", userData);
       } catch (error) {
         console.error("Error loading user data", error);
       }
@@ -70,7 +73,12 @@ const EditForm = () => {
 
   const handleSave = async () => {
     try {
-      const response = await updateUser(formData.identification, formData);
+      const finalData = {
+        ...formData,
+        password: formData.password || currentPassword, // usa la actual si no hay nueva
+      };
+
+      const response = await updateUser(formData.identification, finalData);
       console.log("Respuesta del servidor:", response);
       alert(t("EditInfo.success"));
     } catch (error) {
@@ -93,7 +101,11 @@ const EditForm = () => {
           formData={formData}
           onInputChange={handleInputChange}
         />
-        <Password formData={formData} onInputChange={handleInputChange} />
+        <Password
+          formData={formData}
+          onInputChange={handleInputChange}
+          currentPassword={currentPassword}
+        />
       </form>
       <div className="flex justify-center items-center mb-10">
         <Button onClick={handleSave}>{t("EditInfo.save")}</Button>

@@ -1,6 +1,7 @@
 import FormContainer from "@/shared/ui/FormContainer";
 import Input from "@/shared/ui/Input";
 import { useTranslation } from "react-i18next";
+import UsersMap from "@/auth/components/Maps/UsersMap"; // Asegúrate de que esta ruta sea correcta
 
 interface ContactInformationProps {
   formData: {
@@ -66,12 +67,14 @@ const ContactInformation = ({
           onChange={(e) => onInputChange("postalCode", e.target.value)}
         />
       </div>
-      <div className="flex flex-col">
+
+      {/* Mapa en lugar del input de ubicación */}
+      <div className="flex flex-col h-[300px]">
         <label>{t("EditInfo.location")}</label>
-        <Input
-          value={formData.ubication}
-          placeholder={t("EditInfo.location")}
-          onChange={(e) => onInputChange("ubication", e.target.value)}
+        <UsersMap
+          onLocationSelect={(location) =>
+            onInputChange("ubication", `${location.lat},${location.lng}`)
+          }
         />
       </div>
     </FormContainer>

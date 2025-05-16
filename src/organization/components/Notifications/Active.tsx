@@ -8,7 +8,18 @@ import {
   Alert,
   deleteAlert,
 } from "@/organization/services/notifyService";
-import { IoCheckbox, IoTrashBinSharp } from "react-icons/io5";
+import { IoCheckbox, IoTrashBinSharp, IoSearchSharp } from "react-icons/io5";
+import { getUserById } from "@/auth/services/authServices";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
+interface User {
+  identification: string;
+  name: string;
+  email: string;
+  ubication: string;
+  phone: string;
+}
 
 interface AlertWithOrgName extends Alert {
   organizationName: string;
@@ -18,6 +29,9 @@ const Active = () => {
   const { t } = useTranslation();
   const [alerts, setAlerts] = useState<AlertWithOrgName[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalError, setModalError] = useState<string | null>(null);
 
   useEffect(() => {
     const getAlertsWithOrgNames = async () => {
@@ -73,6 +87,18 @@ const Active = () => {
       console.log(`Alert with id ${alertId} deleted successfully.`);
     } catch (error) {
       console.error("Error deleting alert:", error);
+    }
+  };
+
+  const handleViewUserClick = async (userId: string) => {
+    try {
+      const userData = await getUserById(userId);
+      setSelectedUser(userData);
+      setModalError(null);
+      setIsModalOpen(true);
+    } catch (error) {
+      setModalError("No se pudo obtener la información del usuario.");
+      setIsModalOpen(true);
     }
   };
 
@@ -136,12 +162,82 @@ const Active = () => {
                       className="hover:text-red-400 transition-colors hover:scale-110"
                     />
                   </button>
+                  <button onClick={() => handleViewUserClick(alert.userId)}>
+                    <IoSearchSharp
+                      size={30}
+                      className="hover:text-blue-300 transition-colors hover:scale-110"
+                    />
+                  </button>
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h2 className="text-xl font-bold mb-4 text-cyan-800 dark:text-cyan-100">
+              {t("HomeOrganization.userData")}
+            </h2>
+            {modalError ? (
+              <p className="text-red-500">{modalError}</p>
+            ) : selectedUser ? (
+              <div className="space-y-2 text-cyan-900 dark:text-cyan-100">
+                <p>
+                  <strong>{t("Login.id")}:</strong>{" "}
+                  {selectedUser.identification}
+                </p>
+                <p>
+                  <strong>{t("EditInfo.name")}:</strong> {selectedUser.name}
+                </p>
+                <p>
+                  <strong>{t("EditInfo.email")}:</strong> {selectedUser.email}
+                </p>
+                <p>
+                  <strong>{t("EditInfo.phone")}:</strong> {selectedUser.phone}
+                </p>
+                <p>
+                  <strong>{t("EditInfo.location")}:</strong>
+                </p>
+                {selectedUser &&
+                  selectedUser.ubication &&
+                  (() => {
+                    const [lat, lng] = selectedUser.ubication
+                      .split(",")
+                      .map(Number);
+                    return (
+                      <div className="h-48 mt-4 rounded overflow-hidden">
+                        <MapContainer
+                          center={[lat, lng]}
+                          zoom={13}
+                          style={{ height: "100%", width: "100%" }}
+                          scrollWheelZoom={false}
+                        >
+                          <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution="&copy; OpenStreetMap contributors"
+                          />
+                          <Marker position={[lat, lng]} />
+                        </MapContainer>
+                      </div>
+                    );
+                  })()}
+              </div>
+            ) : (
+              <p className="text-gray-500">Cargando...</p>
+            )}
+            <div className="mt-4 text-right">
+              <button
+                className="px-4 py-2 bg-cyan-700 text-white rounded hover:bg-cyan-800"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
