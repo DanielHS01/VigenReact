@@ -133,12 +133,16 @@
     "email": "Correo",
     "occupation": "Ocupación",
     "country_code": "Indicativo",
-    "phone": "Teléfono",
+    "phone": "Celular",
     "postal_code": "Código Postal",
     "location": "Ubicación",
     "currentPassword": "Contraseña Actual",
     "newPassword": "Nueva Contraseña",
-    "success": "Datos cambiados correctamente"
+    "success": "Datos cambiados correctamente",
+    "nit": "NIT",
+    "nameOrg": "Nombre de la organización",
+    "tel": "Teléfono",
+    "headquarters": "Sedes"
   },
   "Poll": {
     "title": "Encuesta",

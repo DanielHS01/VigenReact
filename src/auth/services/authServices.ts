@@ -19,6 +19,7 @@ export interface RegisterData {
   export interface OrganizationData {
     nit: string;
     password: string;
+    newPassword?: string;
     name: string;
     tel: string;
     phone: string;
@@ -178,6 +179,64 @@ export const registerHeadquarters = async (data: HeadquartersData) => {
     return await response.json();
   } catch (error) {
     console.error("Error en el registro de sede", error);
+    throw error;
+  }
+};
+
+export const getOrganizationById = async (id: string) => {
+  const response = await fetch(`${BASE_URL}/Organization/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al obtener los datos de la organización");
+  }
+
+  return response.json();
+};
+
+export const updateOrganization = async (id: string, updatedData: Partial<OrganizationData>) => {
+  try {
+    const response = await fetch(`${BASE_URL}/Organization/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error al actualizar la organización: ${errorData.message}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error al actualizar la organización", error);
+    throw error;
+  }
+};
+
+export const getHeadquarters = async (nit: string): Promise<HeadquartersData[]> => {
+  try {
+    const response = await fetch(`${BASE_URL}/Site/${nit}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("No se pudieron obtener las sedes");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error al obtener las sedes:", error);
     throw error;
   }
 };

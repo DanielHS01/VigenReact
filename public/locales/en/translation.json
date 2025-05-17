@@ -137,7 +137,11 @@
     "location": "Location",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
-    "success": "Changed info successfully"
+    "success": "Changed info successfully",
+    "nit": "NIT",
+    "nameOrg": "Organization Name",
+    "tel": "Telephone",
+    "headquarters": "Headquarters"
   },
   "Poll": {
     "title": "Poll",

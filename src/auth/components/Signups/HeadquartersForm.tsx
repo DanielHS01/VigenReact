@@ -9,14 +9,17 @@ import {
   registerHeadquarters,
 } from "@/auth/services/authServices";
 import OrganizationMap from "../Maps/OrganizationMap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const HeadquartersForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const nitFromUrl = queryParams.get("nit") || "";
   const [formData, setFormData] = useState<HeadquartersData>({
     id: "",
-    nit: "",
+    nit: nitFromUrl,
     ubication: "",
     range: 1000,
     countryCode: "+57",
@@ -148,6 +151,7 @@ const HeadquartersForm = () => {
     ]);
     setFormData({
       ...formData,
+      nit: nitFromUrl,
       ubication: "",
       phone: "",
       tel: "",
@@ -235,19 +239,6 @@ const HeadquartersForm = () => {
           {t("Register.headquarters")}
         </p>
         <form onSubmit={handleRegisterHeadquarters} className="space-y-5">
-          <div>
-            <Input
-              type="text"
-              name="nit"
-              placeholder="NIT*"
-              value={formData.nit}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.nit && (
-              <p className="text-red-500 text-xs mt-1">{errors.nit}</p>
-            )}
-          </div>
           <div>
             <Input
               type="text"
