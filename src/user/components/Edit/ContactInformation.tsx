@@ -1,7 +1,7 @@
 import FormContainer from "@/shared/ui/FormContainer";
 import Input from "@/shared/ui/Input";
 import { useTranslation } from "react-i18next";
-import UsersMap from "@/auth/components/Maps/UsersMap"; // Asegúrate de que esta ruta sea correcta
+import UsersMap from "@/auth/components/Maps/UsersMap";
 
 interface ContactInformationProps {
   formData: {

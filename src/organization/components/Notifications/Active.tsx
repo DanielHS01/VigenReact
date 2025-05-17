@@ -11,6 +11,7 @@ import {
 import { IoCheckbox, IoTrashBinSharp, IoSearchSharp } from "react-icons/io5";
 import { getUserById } from "@/auth/services/authServices";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 interface User {
@@ -24,6 +25,17 @@ interface User {
 interface AlertWithOrgName extends Alert {
   organizationName: string;
 }
+
+const customIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl:
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 const Active = () => {
   const { t } = useTranslation();
@@ -218,7 +230,7 @@ const Active = () => {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution="&copy; OpenStreetMap contributors"
                           />
-                          <Marker position={[lat, lng]} />
+                          <Marker position={[lat, lng]} icon={customIcon} />
                         </MapContainer>
                       </div>
                     );
