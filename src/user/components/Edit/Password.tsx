@@ -15,27 +15,31 @@ const Password = ({
 }: PasswordProps) => {
   const { t } = useTranslation();
   return (
-    <FormContainer className="space-y-5 px-10">
-      <p className="text-center">{t("EditInfo.password")}</p>
-      <div className="flex flex-col">
-        <label htmlFor="user-password">{t("EditInfo.currentPassword")}</label>
-        <Input
-          id="user-password"
-          type="text"
-          value={currentPassword}
-          disabled
-          placeholder="********"
-          className="bg-slate-200"
-        />
-      </div>
-      <div className="flex flex-col">
-        <label>{t("EditInfo.newPassword")}</label>
-        <Input
-          type="password"
-          value={formData.password}
-          placeholder="********"
-          onChange={(e) => onInputChange("password", e.target.value)}
-        />
+    <FormContainer className="space-y-6 p-6 shadow-md rounded-lg mx-auto max-w-lg">
+      <p className="text-center text-xl font-semibold">
+        {t("EditInfo.password")}
+      </p>
+      <div className="grid grid-cols-1 gap-4">
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.currentPassword")}</label>
+          <Input
+            id="user-password"
+            type="text"
+            value={currentPassword}
+            disabled
+            placeholder="********"
+            className="bg-slate-200"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.newPassword")}</label>
+          <Input
+            type="password"
+            value={formData.password}
+            placeholder="********"
+            onChange={(e) => onInputChange("password", e.target.value)}
+          />
+        </div>
       </div>
     </FormContainer>
   );

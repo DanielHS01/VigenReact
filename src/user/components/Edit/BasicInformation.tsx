@@ -20,41 +20,45 @@ const BasicInformation = ({
   const { t } = useTranslation();
 
   return (
-    <FormContainer className="space-y-5 px-10">
-      <p className="text-center text-lg">{t("EditInfo.basic")}</p>
-      <div className="flex flex-col">
-        <label>{t("EditInfo.identification")}</label>
-        <Input
-          value={formData.identification}
-          placeholder={t("EditInfo.identification")}
-          onChange={(e) => onInputChange("identification", e.target.value)}
-          disabled
-          className="bg-slate-200"
-        />
-      </div>
-      <div className="flex flex-col">
-        <label>{t("EditInfo.name")}</label>
-        <Input
-          value={formData.name}
-          placeholder={t("EditInfo.name")}
-          onChange={(e) => onInputChange("name", e.target.value)}
-        />
-      </div>
-      <div className="flex flex-col">
-        <label>{t("EditInfo.gender")}</label>
-        <Input
-          value={formData.gender}
-          placeholder={t("EditInfo.gender")}
-          onChange={(e) => onInputChange("gender", e.target.value)}
-        />
-      </div>
-      <div className="flex flex-col">
-        <label>{t("EditInfo.marital_status")}</label>
-        <Input
-          value={formData.maritalStatus}
-          placeholder={t("EditInfo.marital_status")}
-          onChange={(e) => onInputChange("maritalStatus", e.target.value)}
-        />
+    <FormContainer className="space-y-6 p-6 shadow-md rounded-lg ">
+      <p className="text-center text-xl font-semibold">
+        {t("EditInfo.basic")}
+      </p>
+      <div className="grid grid-cols-1 gap-4">
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.identification")}</label>
+          <Input
+            value={formData.identification}
+            placeholder={t("EditInfo.identification")}
+            onChange={(e) => onInputChange("identification", e.target.value)}
+            disabled
+            className="bg-slate-200"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.name")}</label>
+          <Input
+            value={formData.name}
+            placeholder={t("EditInfo.name")}
+            onChange={(e) => onInputChange("name", e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.gender")}</label>
+          <Input
+            value={formData.gender}
+            placeholder={t("EditInfo.gender")}
+            onChange={(e) => onInputChange("gender", e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">{t("EditInfo.marital_status")}</label>
+          <Input
+            value={formData.maritalStatus}
+            placeholder={t("EditInfo.marital_status")}
+            onChange={(e) => onInputChange("maritalStatus", e.target.value)}
+          />
+        </div>
       </div>
     </FormContainer>
   );

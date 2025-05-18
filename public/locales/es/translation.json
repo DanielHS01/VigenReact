@@ -98,7 +98,10 @@
       "nitInvalid":"El NIT es invalido"
     },
     "privacyTitle":"Acuerdo de Privacidad",
-    "closeButton":"Cerrar"
+    "closeButton":"Cerrar",
+    "info": "¿Por qué permitir la ubicación?",
+    "description": "Permitir el acceso a tu ubicación nos ayuda a ofrecerte servicios personalizados basados en tu área. Tu ubicación se almacenará de forma segura y no será compartida con terceros sin tu consentimiento. Puedes cambiar esta ubicación en cualquier momento."
+
 
   },
   "HomeOrganization": {
