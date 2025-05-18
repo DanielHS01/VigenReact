@@ -75,7 +75,7 @@ const EditForm = () => {
     try {
       const finalData = {
         ...formData,
-        password: formData.password || currentPassword, // usa la actual si no hay nueva
+        password: formData.password || currentPassword,
       };
 
       const response = await updateUser(formData.identification, finalData);
@@ -88,29 +88,35 @@ const EditForm = () => {
   };
 
   return (
-    <>
-      <h2 className="text-center mt-5 text-3xl font-semibold text-cyan-950 dark:text-cyan-50">
+    <div className="max-w-6xl mx-auto p-6">
+      <h2 className="text-center mb-8 text-3xl font-semibold text-cyan-950 dark:text-cyan-50">
         {t("EditInfo.title")}
       </h2>
-      <form className="grid grid-cols-1 md:grid-cols-2 place-items-center space-y-10 md:space-y-0 items-center py-10">
-        <BasicInformation
-          formData={formData}
-          onInputChange={handleInputChange}
-        />
-        <ContactInformation
-          formData={formData}
-          onInputChange={handleInputChange}
-        />
-        <Password
-          formData={formData}
-          onInputChange={handleInputChange}
-          currentPassword={currentPassword}
-        />
-      </form>
-      <div className="flex justify-center items-center mb-10">
-        <Button onClick={handleSave}>{t("EditInfo.save")}</Button>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="space-y-12">
+          <BasicInformation
+            formData={formData}
+            onInputChange={handleInputChange}
+          />
+          <Password
+            formData={formData}
+            onInputChange={handleInputChange}
+            currentPassword={currentPassword}
+          />
+        </div>
+        <div className="flex justify-center">
+          <ContactInformation
+            formData={formData}
+            onInputChange={handleInputChange}
+          />
+        </div>
       </div>
-    </>
+      <div className="flex justify-center mt-10">
+        <Button onClick={handleSave} className="px-6 py-3 hover:bg-cyan-700">
+          {t("EditInfo.save")}
+        </Button>
+      </div>
+    </div>
   );
 };
 

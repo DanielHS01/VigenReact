@@ -98,7 +98,9 @@
       "nitInvalid":"NIT is Invalid"
     },
     "privacyTitle":"PrivacyAgreement",
-    "closeButton":"Close"
+    "closeButton":"Close",
+    "info": "Why allow location?",
+    "description": "Allowing location access helps us provide personalized services based on your area. Your location will be stored securely and not shared with third parties without your consent. You can change this setting at any time."
   },
   "HomeOrganization": {
     "welcome": "Welcome, ",
