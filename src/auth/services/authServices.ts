@@ -240,3 +240,19 @@ export const getHeadquarters = async (nit: string): Promise<HeadquartersData[]> 
     throw error;
   }
 };
+
+export const resendCode = async (identification: string) => {
+  const response = await fetch(`${BASE_URL}/user/resend-code`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ identification })
+  });
+
+  if (!response.ok) {
+    throw new Error("No se pudo reenviar el código.");
+  }
+
+  return response.text();
+};

@@ -8,11 +8,7 @@ interface PasswordProps {
   currentPassword: string;
 }
 
-const Password = ({
-  formData,
-  onInputChange,
-  currentPassword,
-}: PasswordProps) => {
+const Password = ({ formData, onInputChange }: PasswordProps) => {
   const { t } = useTranslation();
   return (
     <FormContainer className="space-y-6 p-6 shadow-md rounded-lg mx-auto max-w-lg">
@@ -21,18 +17,9 @@ const Password = ({
       </p>
       <div className="grid grid-cols-1 gap-4">
         <div className="flex flex-col">
-          <label className="text-sm font-medium">{t("EditInfo.currentPassword")}</label>
-          <Input
-            id="user-password"
-            type="text"
-            value={currentPassword}
-            disabled
-            placeholder="********"
-            className="bg-slate-200"
-          />
-        </div>
-        <div className="flex flex-col">
-          <label className="text-sm font-medium">{t("EditInfo.newPassword")}</label>
+          <label className="text-sm font-medium">
+            {t("EditInfo.newPassword")}
+          </label>
           <Input
             type="password"
             value={formData.password}

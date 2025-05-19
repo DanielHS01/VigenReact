@@ -50,7 +50,7 @@ const EditForm = () => {
           phone: userData.phone || prevData.phone,
           postalCode: userData.postalCode || prevData.postalCode,
           ubication: userData.ubication || prevData.ubication,
-          password: userData.password || prevData.password,
+          password: "",
           verification: userData.verification,
           code: userData.code,
         }));

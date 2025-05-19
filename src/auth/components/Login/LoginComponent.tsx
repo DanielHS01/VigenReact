@@ -27,9 +27,12 @@ const LoginComponent = () => {
         </Link>
       </div>
       <LoginForm />
-      <p className="text-end text-xs py-2 font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2">
+      <Link
+        to="/resetPassword"
+        className="text-end text-xs py-2 font-thin cursor-pointer hover:text-gray-200 transition-colors hover:underline underline-offset-2 block"
+      >
         {t("Login.forgotPassword")}
-      </p>
+      </Link>
     </FormContainer>
   );
 };
