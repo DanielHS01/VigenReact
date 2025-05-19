@@ -1,8 +1,8 @@
 import { useState, useRef, ChangeEvent } from "react";
 import { useAuth } from "@/contexts/authContext";
 import Button from "@/shared/ui/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { verifyUser } from "@/auth/services/authServices";
+import { useNavigate } from "react-router-dom";
+import { verifyUser, resendCode } from "@/auth/services/authServices";
 import FormContainer from "@/shared/ui/FormContainer";
 import { FaLock } from "react-icons/fa6";
 
@@ -11,6 +11,7 @@ const VerificationCode = () => {
   const [code, setCode] = useState<string[]>(["", "", "", ""]);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [infoMessage, setInfoMessage] = useState("");
   const navigate = useNavigate();
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -26,7 +27,10 @@ const VerificationCode = () => {
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
     if (e.key === "Backspace" && !code[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -61,6 +65,22 @@ const VerificationCode = () => {
     }
   };
 
+  const handleResendCode = async () => {
+    setError("");
+    setInfoMessage("");
+    if (!userData?.identification) {
+      setError("No hay identificación disponible para reenviar el código.");
+      return;
+    }
+
+    try {
+      await resendCode(userData.identification);
+      setInfoMessage("Código reenviado correctamente. Revisa tu correo.");
+    } catch (err) {
+      setError("Error al reenviar el código.");
+    }
+  };
+
   return (
     <section className="p-16 flex items-center justify-center">
       <FormContainer>
@@ -73,17 +93,19 @@ const VerificationCode = () => {
           Verificar código
         </p>
         <div className="flex flex-col gap-2 text-xs md:text-sm py-5">
-          <div className="flex justify-between">
+          <div className="flex justify-between text-xs md:text-sm py-5">
             <p className="font-thin">¿No te llegó el código?</p>
-            <Link
-              to="/roles"
+            <button
+              type="button"
+              onClick={handleResendCode}
               className="uppercase font-bold hover:text-gray-200 transition-colors hover:underline underline-offset-2"
             >
               Reenviar código
-            </Link>
+            </button>
           </div>
           <p className="text-gray-500">
-            Si no lo encuentras en tu bandeja de entrada, revisa la carpeta de spam.
+            Si no lo encuentras en tu bandeja de entrada, revisa la carpeta de
+            spam.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -121,6 +143,10 @@ const VerificationCode = () => {
             </Button>
           </div>
         </form>
+        {infoMessage && (
+          <p className="text-green-500 text-center">{infoMessage}</p>
+        )}
+        {error && <p className="text-red-500 text-center">{error}</p>}
       </FormContainer>
     </section>
   );

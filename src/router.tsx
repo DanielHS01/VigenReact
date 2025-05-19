@@ -15,6 +15,9 @@ const AboutUs = lazy(() => import("@/landing/pages/AboutUs"));
 const Help = lazy(() => import("@/landing/pages/Help"));
 const Roles = lazy(() => import("@/landing/pages/Roles"));
 const Login = lazy(() => import("@/auth/pages/Login"));
+const ResetPasswordForm = lazy(
+  () => import("@/auth/components/Login/ResetPasswordForm")
+);
 const OrganizationSignup = lazy(
   () => import("@/auth/pages/OrganizationSignup")
 );
@@ -50,6 +53,7 @@ export const router = createBrowserRouter([
       { path: "/organizationSignup", element: <OrganizationSignup /> },
       { path: "/headquarterSignup", element: <HeadquartersSignup /> },
       { path: "/userSignup", element: <UserSignup /> },
+      { path: "/resetPassword", element: <ResetPasswordForm /> },
 
       // Rutas protegidas de la organización
       {

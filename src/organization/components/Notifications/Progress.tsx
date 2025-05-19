@@ -65,12 +65,12 @@ const Active = () => {
 
     try {
       // Solo cambiamos el stateId en el objeto de alerta
-      const updatedAlert: AlertWithOrgName = { ...alert, stateId: 1 };
+      const updatedAlert: AlertWithOrgName = { ...alert, stateId: 2 };
       await updateAlertState(updatedAlert);
 
       // Actualiza el estado local para reflejar el cambio
       setAlerts((prevAlerts) =>
-        prevAlerts.map((a) => (a.id === alert.id ? { ...a, stateId: 1 } : a))
+        prevAlerts.map((a) => (a.id === alert.id ? { ...a, stateId: 2 } : a))
       );
     } catch (error) {
       console.error("Error updating alert:", error);
