@@ -102,7 +102,7 @@ const EditForm = () => {
         onSubmit={handleSubmit}
         className="flex flex-col md:flex-col justify-center md:justify-evenly items-center space-y-10 md:space-y-0 py-10"
       >
-        <div className="flex space-x-10">
+        <div className="flex flex-col  sm:flex-row justify-center items-start gap-4 sm:gap-10">
           <div>
             <BasicInformation values={organization} onChange={handleChange} />
           </div>
@@ -114,7 +114,7 @@ const EditForm = () => {
           </div>
         </div>
         <div className="w-full px-4 md:w-1/2">
-          <h3 className="text-xl font-semibold mt-4 text-cyan-900 dark:text-cyan-50">
+          <h3 className="text-xl font-semibold mt-4 text-cyan-950 dark:text-cyan-50 py-3">
             {t("EditInfo.headquarters")}
           </h3>
           <HeadquartersTable headquarters={headquarters} />

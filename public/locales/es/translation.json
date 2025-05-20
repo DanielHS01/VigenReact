@@ -145,7 +145,10 @@
     "nit": "NIT",
     "nameOrg": "Nombre de la organización",
     "tel": "Teléfono",
-    "headquarters": "Sedes"
+    "headquarters": "Sedes",
+    "noData": "No registra",
+    "close": "Cerrar",
+    "successTitle": "Sus datos han sido editados correctamente. Gracias."
   },
   "Poll": {
     "title": "Encuesta",
@@ -245,5 +248,34 @@
       "violence": "Estadísticas de Violencia",
       "education": "Niveles de Educación",
       "orientation": "Estadísticas de Orientación"
+    },
+    "ResetPassword":{
+      "resetPassword": "RESTABLECER CONTRASEÑA",
+          "selectRoleAndId": "Selecciona tu rol e ingresa tu identificación",
+          "role": "Rol",
+          "organization": "Organización",
+          "user": "Usuario",
+          "nit": "NIT",
+          "identification": "Identificación",
+          "newPassword": "Nueva Contraseña",
+          "reset": "Restablecer",
+          "passwordResetSuccessOrg": "Contraseña restablecida correctamente.",
+          "passwordSentSuccessUser": "La nueva contraseña fue enviada al correo.",
+          "checkSpam": "¿No llegó el correo? Revisa tu carpeta de Spam."
+    },
+    "team": {
+    "title": "Sobre el Equipo",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "sebastian": {
+      "name": "Sebastian Palacio",
+      "title": "Ingeniero de Sistemas",
+      "description": "Sebastian es un estudiante de Ingeniería de Sistemas enfocado en el desarrollo de software y la innovación tecnológica. Actualmente se encuentra en las etapas finales de su carrera, participando en proyectos académicos que fortalecen sus habilidades técnicas y de trabajo en equipo."
+    },
+    "daniel": {
+      "name": "Daniel Hernandez",
+      "title": "Ingeniero de Sistemas",
+      "description": "Daniel cursa los últimos semestres de Ingeniería de Sistemas, con un interés particular en la ciberseguridad y las redes informáticas. Ha contribuido en iniciativas universitarias que promueven el aprendizaje colaborativo y la aplicación práctica del conocimiento adquirido."
     }
+  }
 }
