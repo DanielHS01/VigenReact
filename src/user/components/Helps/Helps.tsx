@@ -32,6 +32,7 @@ const Helps = () => {
           <li>Policía Nacional: 123</li>
           <li>Línea de Bienestar Familiar: 141</li>
           <li>Fiscalía General de la Nación: 122</li>
+          <li>Patrulla Púrpura: 3157166795</li>
         </ul>
       </div>
     );
