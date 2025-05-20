@@ -1,5 +1,5 @@
-import Stepper from "@/user/components/Stepper/Stepper";
 import { useTranslation } from "react-i18next";
+import SurveyForm from "../components/Survery/SurveyForm";
 
 const Poll = () => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ const Poll = () => {
           {t("Poll.description")}
         </p>
       </div>
-      <Stepper />
+      <SurveyForm />
     </>
   );
 };
