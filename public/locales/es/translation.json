@@ -204,7 +204,10 @@
     "pressured": "¿Se ha sentido presionado a tener relaciones sexuales?",
     "belongings": "¿Le han destruido algunas de sus pertenencias?",
     "shaken": "¿Le han sacudido, zarandeado, jaloneado o empujado?",
-    "assaulted": "¿Se ha sentido agredido física o psicológicamente?"
+    "assaulted": "¿Se ha sentido agredido física o psicológicamente?",
+    "success": "Su encuesta fue enviada correctamente",
+    "error": "Error al enviar encuesta",
+    "submitting": "Enviando..."
   },
   "Steppers": {
     "Organization": "Organización",
