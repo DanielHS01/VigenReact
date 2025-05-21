@@ -202,7 +202,10 @@
     "pressured": "Have you ever felt pressured to have sex?",
     "belongings": "Have any of your belongings been destroyed?",
     "shaken": "Have you been shaken, shook, jostled, pulled or pushed?",
-    "assaulted": "Have you ever felt physically or psychologically assaulted?"
+    "assaulted": "Have you ever felt physically or psychologically assaulted?",
+    "success": "Your survey was sent successfully",
+    "error": "Error sending survey",
+    "submitting": "Submitting..."
   },
   "Steppers": {
     "Organization": "Organization",
